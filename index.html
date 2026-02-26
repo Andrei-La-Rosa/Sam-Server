@@ -1,25 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" contemt="IE=edge">
+    <meta name="vieport" content="width=device-width, intial-scale=1.0">
+    <link
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+    rel="stylesheet"/>
     <title>About Me</title>
+    <style>
+    body {
+    font-family: "Open Sans", sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+}
+
+.profile__card{
+    position: relative;
+    max-width: 400px;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 5px;
+    background-color: var(--extra-light);
+    box-shadow: 10px 10px 50px #9ca3af; 
+}
+
+.more{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: var(--text-light); 
+    cursor: pointer;
+}
+
+.name{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.about{
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.social__icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+    </style>
 </head>
 <body>
-    <h1>About Me</h1>    
-    <img src="dre.jpg" alt="My Picture" width="150" height="150">
-
-    <p><b>Name:</b> Andrei Samuel C. La Rosa<br>
+    <div class="profile__card">
+     <div class="more"><i class="ri-more-2-fill"></i></div>
+     <h1 class="name">About Me</h1>    
+     <img src="dre.jpg" alt="My Picture" width="150" height="150">
+    
+     <div class="profile__details">
+     <p><b>Name:</b> Andrei Samuel C. La Rosa<br>
        <b>Student #:</b> 251100672<br>
        <b>Course:</b> Bachelor of Computer Science<br>
        <b>Section:</b> BSCS-1B
-    </p>
+     </p>
+     </div>
 
-    <h2>Bit of Info</h2>
-    <p> I enjoy making content like drawing, editing, and gaming 
-    </p>
+     <div class="about">
+     <h2>Bit of Info:</h2>
+     <p> I enjoy making content like drawing, editing, and gaming 
+     </p>
+     </div>
 
-    <h3>My Social Medias:</h3>
-    <a href="https://www.youtube.com/channel/UCZ1qf-GyxfY_5ZR7TsMjRZA">My Youtube</a><br>
-    <a href="https://www.tiktok.com/@nyreitv?is_from_webapp=1&sender_device=pc">My Tiktok</a>
-
+     <h3>My Social Medias:</h3>
+     <div class="social__icons">
+     <a href="https://www.youtube.com/channel/UCZ1qf-GyxfY_5ZR7TsMjRZA"><i class="ri-youtube-fill"></i>My Youtube</a><br>
+     <a href="https://www.tiktok.com/@nyreitv?is_from_webapp=1&sender_device=pc"><i class="ri-tiktok-line"></i>My Tiktok</a>
+     </div>
+    </div>
 </body>
 </html>

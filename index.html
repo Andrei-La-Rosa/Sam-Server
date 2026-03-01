@@ -2,102 +2,159 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" contemt="IE=edge">
-    <meta name="vieport" content="width=device-width, intial-scale=1.0">
-    <link
+    <meta name="viewport" content="width+device-width, initial-scale=1.0">
+    <title>About Me</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
     rel="stylesheet"/>
-    <title>About Me</title>
     <style>
-:root{ 
-    --primary-color: #31b6bf; 
-    --secondary-color: #e7e7f1;
-    --text-dark: #333333;
-    --text-light: #767268;
-    --extra-light: #f3f4f6;
+        @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+:root {
+--base-color: white;
+--text-color: black;
+--primary-color: yellow;
+--secondary-color: #8D8DFF;
+--color-1: white;
+--color-2: white;
+--color-3: white;
 }
-        
-    body {
-    font-family: "Open Sans", sans-serif;
-    height: 100vh;
+
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+html{
+    font-family: Merriweather, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    color: var(--text-color);
+}
+
+body{
+    padding: 1em;
+    background-color: var(--base-color);
+}
+
+h1, h2, h3, {
+    font-family: Merriweather, 'Segoe UI', Tahoma;
+}
+
+nav{
+    margin: 1em auto  3em auto;
+    width: min(1000px, 100%);
+}
+
+nav ul {
     display: flex;
     align-items: center;
+    list-style-type: none;
+    gap: 2em;
+}
+
+nav li:first-child{
+    margin-right: auto;
+    font-family: Merriweather, sans-serif;
+    font-weight: bold;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+header, section {
+    margin: 2em auto;
+    width min(75em, 100%);
+    background-color: var(--color-1);
+    padding: min(2em, 15%);
+    border-radius: 1em; 
+}
+
+.profile__details{
+    display: flex;
     justify-content: center;
-    background-color: var(--secondary-color);
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3em; 
 }
 
-.profile__card{
-    position: relative;
-    max-width: 400px;
-    padding: 2rem;
-    text-align: center;
-    border-radius: 5px;
-    background-color: var(--extra-light);
-    box-shadow: 10px 10px 50px #9ca3af; 
-}
-        
-.profile__card img{
-    max-width: 100px;
-    boarder-radius: 100%;
-    padding: 1rem 0;
+header img {
+    max-width: 100%
+    border-radius: 1em;
+    object-fit: cover;
+    object-position: bottom;
 }
 
-.more{
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 2rem;
-    color: var(--text-light); 
-    cursor: pointer;
+.text_container{
+    flex: 0 1 34em;
 }
 
-.name{
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-dark);
+h1{
+    font-size: 2.5rem; 
 }
 
-.about{
-    font-size: 0.8rem;
-    color: var(--text-light);
+.text-container p {
+    margin: .75em 0 1em 0;
+    font-size: 1.25rem;
+
+}
+
+h2{
+    font-size: 2.5rem; 
+}
+
+
+h3{
+    font-size: 2.5rem;
 }
 
 .social__icons{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    display: inline-block;
+    padding: .75em 1.25em; 
+    margin: .75em 0 1em 0;
 }
+
     </style>
 </head>
 <body>
-    <div class="profile__card">
-     <div class="more"><i class="ri-more-2-fill"></i></div>
-     <h1 class="name">About Me</h1>    
-     <img src="dre.jpg" alt="My Picture" width="150" height="150">
-    
-     <div class="profile__details">
-     <p><b>Name:</b> Andrei Samuel C. La Rosa<br>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">About Me</li>
+                <li><a href="index.html">Activities</li>
+                <li><a href="index.html">Contact</a></li>
+            </ul>
+        </nav>
+    <div class="profile__details">
+       <img src="dre.jpg" alt="My Picture" width="400px" height="500px">
+      <div class="text-container">
+       <h1>Hello Everyone!</h1>
+       <p><b>Name:</b> Andrei Samuel C. La Rosa<br>
        <b>Student #:</b> 251100672<br>
        <b>Course:</b> Bachelor of Computer Science<br>
        <b>Section:</b> BSCS-1B
-     </p>
-     </div>
+       </p>
 
-     <div class="about">
-     <h2>Bit of Info:</h2>
-     <p> I enjoy making content like drawing, editing, and gaming 
-     </p>
-     </div>
+        <h2>Bit of Info</h2>
+        <p> I enjoy making content like drawing, editing, and gaming 
+        </p>
 
-     <h3>My Social Medias:</h3>
-     <div class="social__icons">
-     <a href="https://www.youtube.com/channel/UCZ1qf-GyxfY_5ZR7TsMjRZA"><i class="ri-youtube-fill"></i>My Youtube</a><br>
-     <a href="https://www.tiktok.com/@nyreitv?is_from_webapp=1&sender_device=pc"><i class="ri-tiktok-line"></i>My Tiktok</a>
-     </div>
+
+        <h3>My Social Medias:</h3>
+        <div class="social__icons">
+        <a href="https://www.youtube.com/channel/UCZ1qf-GyxfY_5ZR7TsMjRZA"><i class="ri-youtube-fill"></i>My Youtube</a><br>
+        <a href="https://www.tiktok.com/@nyreitv?is_from_webapp=1&sender_device=pc"><i class="ri-tiktok-line"></i>My Tiktok</a>
+        </div>
+       </div> 
     </div>
+    </header>
+
+    <section id="Activities" class="Activities">
+        <button class="Quiz">
+            
+    </section>
 </body>
 </html>
-
-
-

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities</title>
+<style>
+:root {
+    --base-color: #ffffff;
+    --text-color: black;
+    --primary-color: #ffc06e;
+    --secondary-color: #8D8DFF;
+    --color-1: rgba(255, 255, 255, 0.952);
+    --color-2: #cccccc;
+    --color-3: #c9c5cc;
+}
+
+*{
+    margin: 0;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+html{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    color: var(--text-color);
+}
+
+body{
+    display: center;
+    padding: 1em;
+    background-color: var(--base-color);
+}
+
+h1, h2, h3, {
+    font-family: Merriweather, Tahoma, sans-serif;
+}
+
+h1{
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: 2.5rem; 
+}
+header {
+    width min(75em, 100%);
+    background-color: var(--base-color);
+    padding: min(2em, 15%);
+    border-radius: 1em; 
+}
+.Activities{
+    display: grid;
+    padding: 3rem 2rem;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.activity-grid{
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 3rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;  
+}
+.activity-grid:hover{
+    background-color: var(--secondary-color);
+    color: var(--base-color);
+    transform: translateY(10px)scale(1.02);
+}
+
+.activity-grid img{
+    width: 20vw;
+    border-radius: 1rem;
+}
+</style>
+</head>
+    <body>
+        <header>
+        <h1>My Activities</h1>
+         <div class="Activities">
+            <div class="activity-grid">   
+            <a href="quizzes.html">Quiz<br><img src="quiz.png" width="400" height="200"></a>
+            </div>
+            <div class="activity-grid">
+             <a href="exercises.html">Activity<br><img src="activity.webp" width="400" height="200"></a>
+            </div>
+            <div class="activity-grid">
+             <a href="exams.html">Exam<br><img src="exam.jpg" width="400" height="200"></a>
+            </div>
+         </div> 
+        </header>
+    </body>
+</html>

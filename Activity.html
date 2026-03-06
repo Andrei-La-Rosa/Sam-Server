@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity</title>
+    <style>
+        :root {
+    --base-color: #ffffff;
+    --text-color: black;
+    --primary-color: #ffc06e;
+    --secondary-color: #8D8DFF;
+    --color-1: rgba(255, 255, 255, 0.952);
+    --color-2: #cccccc;
+    --color-3: #c9c5cc;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    color: var(--text-color);
+}
+
+body{
+    display: center;
+    padding: 1em;
+    background-color: var(--primary-color);
+}
+
+h1, h2, h3, {
+    font-family: Merriweather, Tahoma, sans-serif;
+}
+
+h1{
+    text-align: center;
+    color: var(--text-color);
+    font-size: 2.5rem; 
+}
+
+header, section{
+    margin: 2em auto;
+    width: min(75em, 100%);
+    background-color: var(--base-color);
+    padding: min(2em, 15%);
+    border-radius: 1em; 
+}
+
+.grid-container{
+    display: grid;
+    padding: 2rem;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; 
+}
+.grid-container p{
+    padding: 1rem;
+    font-family: merriweather;
+    color: var(--secondary-color);
+    text-align: center;
+}
+.grid-container img{
+    width: 100%;
+    height: 100%;
+    border-radius: .5em;
+    transition: 100ms ease;
+}
+
+.grid-container img{
+    width: 20vw;
+    height: 20vw;
+   
+}
+
+.grid-container img:hover{
+    transform: translateY(20px)scale(1.02);
+    scale: 1.05;
+}
+
+a{
+    font-family: sans-serif
+    color: var(--secondary-color)
+}
+
+a:hover{
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+    <header>
+    <h1>My Activities</h1>
+    <div class="grid-container">
+    <a href="activities.html"><- go back?</a>
+    </header>
+</body>
+</html>

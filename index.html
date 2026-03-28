@@ -5,7 +5,8 @@
     <meta name="viewport" content="width+device-width, initial-scale=1.0">
     <title>About Me</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
-    rel="stylesheet"/>
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
 :root {
@@ -19,9 +20,70 @@
 }
 
 *{
- margin: 0;
- padding: 0;
- box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+    font-family: 'Poppins';
+    text-decoration: none;
+    scroll-behavior: smooth;
+    list-style: none;
+}
+        
+header{
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    background-color: black(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    color: var(--color-2);
+    padding: 0.5rem 1.5rem;
+    border-radius: 3rem;
+    z-index: 1000;
+}
+
+.logo{
+    color var(--color-2);
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-wrap: nowrap;
+    transition: 0.3s ease-in-out;
+}
+
+.logo:hover{
+    transform: scale(1.1);
+}
+
+.nav-links{
+    display: flex;
+    gap: 2rem;
+}
+
+link a{
+    position: relative;
+    color: va(--color-2);
+    font-weight: 300;
+}
+
+link a::before{
+    position: absolute;
+    content: '';
+    width: 0;
+    left: 0;
+    height: 5px;
+    top: 25px;
+    border-radius: 1rem;
+    transition: 0.3s ease-in-out;
+    background: linear-gradient(to right, var(--color-1 0, 157, 255), var(--secondary-color 255, 0, 255));
+}
+
+link a:hover::before{
+    width: 100%;
+    
 }
 
 html{
@@ -136,14 +198,24 @@ h1{
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">About Me</li>
-                <li><a href="activities.html">Activities</li>
-                <li><a href="index.html">Contact</a></li>
+   <header class="header">
+        <a href="#" class="logo"><span>About Me</span>
+            <ul class="nav-links">
+                <li>
+                    <a href="index.html">About Me</a>
+                </li>
+                <li>
+                    <a href="activities.html">Activities</a>
+
+                </li>
+                <li>
+                    <a href="index.html">Contact</a>
+                </li>
             </ul>
-        </nav>
+
+            <i class="fa-sharp fa-solid fa-bars" id="menu-icon"></i>
+    </header>
+    <header>
     <div class="profile__details">
        <img src="dre.jpg" alt="My Picture" width="400px" height="500px">
       <div class="text-container">

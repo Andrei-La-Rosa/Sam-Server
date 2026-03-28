@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width+device-width, initial-scale=1.0">
     <title>About Me</title>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
-    rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet"/>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
 :root {
 --base-color: white;
 --text-color: black;
@@ -20,70 +18,9 @@
 }
 
 *{
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
-    font-family: 'Poppins';
-    text-decoration: none;
-    scroll-behavior: smooth;
-    list-style: none;
-}
-        
-header{
-    position: fixed;
-    top: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5rem;
-    background-color: black(0, 0, 0, 0.8);
-    backdrop-filter: blur(8px);
-    color: var(--color-2);
-    padding: 0.5rem 1.5rem;
-    border-radius: 3rem;
-    z-index: 1000;
-}
-
-.logo{
-    color var(--color-2);
-    font-size: 1.3rem;
-    font-weight: 600;
-    text-wrap: nowrap;
-    transition: 0.3s ease-in-out;
-}
-
-.logo:hover{
-    transform: scale(1.1);
-}
-
-.nav-links{
-    display: flex;
-    gap: 2rem;
-}
-
-link a{
-    position: relative;
-    color: va(--color-2);
-    font-weight: 300;
-}
-
-link a::before{
-    position: absolute;
-    content: '';
-    width: 0;
-    left: 0;
-    height: 5px;
-    top: 25px;
-    border-radius: 1rem;
-    transition: 0.3s ease-in-out;
-    background: linear-gradient(to right, var(--color-1 0, 157, 255), var(--secondary-color 255, 0, 255));
-}
-
-link a:hover::before{
-    width: 100%;
-    
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
 }
 
 html{
@@ -100,7 +37,36 @@ h1, h2, h3, {
     font-family: Merriweather, 'Segoe UI', Tahoma;
 }
 
-section {
+nav{
+    margin: 1em auto  3em auto;
+    width: min(1000px, 100%);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    gap: 2em;
+}
+
+nav li:first-child{
+    margin-right: auto;
+    font-family: Merriweather, sans-serif;
+    font-weight: bold;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--secondary-color); 
+    transition: 0.3s ease-in-out; 
+}
+
+nav a:hover {
+    transition: 0.3s ease-in-out;
+    text-decoration: underline;
+}
+
+header, section {
     margin: 2em auto;
     width min(75em, 100%);
     background-color: var(--base-color);
@@ -154,39 +120,33 @@ h1{
 }
         
 .youtube{
-    background-color: red;
+    color: red;
 }
 
 .youtube:hover{
-    box-shadow: 0px 2px 5px;
+    transition: 0.3s ease-in-out;
+    text-decoration: underline;
 }
 
 .tiktok{
-    background-color: black;
+    color: black;
 }
 
-.tiktok{
-    box-shadow: 0px 2px 5px;
+.tiktok:hover{
+    transition: 0.3s ease-in-out;
+    text-decoration: underline;
 }
     </style>
 </head>
 <body>
-   <header class="header">
-        <a href="#" class="logo"><span>About Me</span>
-            <ul class="nav-links">
-                <li>
-                    <a href="index.html">About Me</a>
-                </li>
-                <li>
-                    <a href="activities.html">Activities</a>
-                </li>
-                <li>
-                    <a href="index.html">Contact</a>
-                </li>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">About Me</li>
+                <li><a href="activities.html">Activities</li>
+                <li><a href="index.html">Contact</a></li>
             </ul>
-            <i class="fa-sharp fa-solid fa-bars" id="menu-icon"></i>
-    </header>
-    <section>
+        </nav>
     <div class="profile__details">
        <img src="dre.jpg" alt="My Picture" width="400px" height="500px">
       <div class="text-container">
@@ -195,15 +155,14 @@ h1{
        <p><b>I'm a student of Computer Science [BSCS-1B] in CVSU-Silang</b><br>
            I enjoy making content such as <strong>Drawing, Editing, and Gaming</strong></p>
         <div class="social__icons">
-        <a href="https://www.youtube.com/channel/UCZ1qf-GyxfY_5ZR7TsMjRZA"><i class="ri-youtube-fill"></i>My Youtube</a>
-        <a href="https://www.tiktok.com/@nyreitv?is_from_webapp=1&sender_device=pc"><i class="ri-tiktok-line"></i>My Tiktok</a>
+        <a href="https://www.youtube.com/channel/UCZ1qf-GyxfY_5ZR7TsMjRZA"><i class="ri-youtube-fill"></i></a>
+        <a href="https://www.tiktok.com/@nyreitv?is_from_webapp=1&sender_device=pc"><i class="ri-tiktok-line"></i></a>
         </div>
        </div> 
     </div>
-    </section>
+    </header>
 </body>
 </html>
-
 
 
 

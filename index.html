@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width+device-width, initial-scale=1.0">
     <title>About Me</title>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet"/>
     <style>
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
 :root {
@@ -38,21 +38,30 @@ h1, h2, h3, {
 }
 
 nav{
-    margin: 1em auto  3em auto;
-    width: min(1000px, 100%);
-}
-
-nav ul {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    list-style-type: none;
-    gap: 2em;
+    padding: 0;
+    height: 80px;
 }
 
-nav li:first-child{
-    margin-right: auto;
+nav .left a{
+    color: var(--secondary-color);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+@media (max-width: 600px){
+    nav{
+        padding 0 20px;
+    }
+}
+
+nav .right a{
+    color: var(--secondary-color); 
     font-family: Merriweather, sans-serif;
     font-weight: bold;
+    margin: 0 10px;
 }
 
 nav a {
@@ -62,7 +71,6 @@ nav a {
 }
 
 nav a:hover {
-    transition: 0.3s ease-in-out;
     text-decoration: underline;
 }
 
@@ -75,16 +83,17 @@ header, section {
 }
 
 .profile__details{
-    display: flex;
+   display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 3em; 
 }
 
-header img {
-    border-radius: 5px;
+.profile__details img {
+    border-radius: 10px;
     max-width: 100%;
+    align-items: center;
     object-fit: cover;
     object-position: bottom;
     box-shadow: 10px 10px 50px gray; 
@@ -124,7 +133,6 @@ h1{
 }
 
 .youtube:hover{
-    transition: 0.3s ease-in-out;
     text-decoration: underline;
 }
 
@@ -133,7 +141,6 @@ h1{
 }
 
 .tiktok:hover{
-    transition: 0.3s ease-in-out;
     text-decoration: underline;
 }
     </style>
@@ -141,11 +148,14 @@ h1{
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="index.html">About Me</a></li>
-                <li><a href="activities.html">Activities</a></li>
-                <li><a href="index.html">Contact</a></li>
-            </ul>
+            <div class="left">
+            <a href="index.html">About Me</a>
+            </div>
+
+            <div class="right">
+                <a href="activities.html">Activities</a>
+                <a href="index.html">Contact</a>
+            </div>
         </nav>
     <div class="profile__details">
        <img src="dre.jpg" alt="My Picture" width="400px" height="500px">
@@ -155,15 +165,14 @@ h1{
        <p><b>I'm a student of Computer Science [BSCS-1B] in CVSU-Silang</b><br>
            I enjoy making content such as <strong>Drawing, Editing, and Gaming</strong></p>
         <div class="social__icons">
-        <a href="https://www.youtube.com/channel/UCZ1qf-GyxfY_5ZR7TsMjRZA"><i class="ri-youtube-fill"> My YT</i></a>
-        <a href="https://www.tiktok.com/@nyreitv?is_from_webapp=1&sender_device=pc"><i class="ri-tiktok-line">My Tiktok</i></a>
+        <a href="https://www.youtube.com/channel/UCZ1qf-GyxfY_5ZR7TsMjRZA"><i class="ri-youtube-fill"></i></a>
+        <a href="https://www.tiktok.com/@nyreitv?is_from_webapp=1&sender_device=pc"><i class="ri-tiktok-line"></i></a>
         </div>
        </div> 
     </div>
     </header>
 </body>
 </html>
-
 
 
 

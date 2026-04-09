@@ -35,6 +35,7 @@ h2{
 }
 /* Container */
 .container {
+  height
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,9 +74,9 @@ input {
 
 button {
   background: var(--secondary--color);
-  color: white;
+  color: var(--base-color);
   padding: 10px;
-  border: none;
+  border: var(--secondary--color);
   border-radius: 8px;
   cursor: pointer;
 }
@@ -94,13 +95,13 @@ Write to Andrei Samuel La Rosa
 
     <div class="card">
         <h2>Quiz Upload</h2>
+        <label>Title:</label>
+        <input type="text" id="title"><br><br>
 
-        <input type="text" id="title" placeholder="Title"><br><br>
-
-        <label>Upload File</label><br>
+        <label>Upload File:</label><br>
         <input type="file" id="file"><br><br>
 
-        <label>Upload Image</label><br>
+        <label>Upload Image:</label><br>
         <input type="file" id="image"><br><br>
 
         <button onclick="submitQuiz()">Submit</button>

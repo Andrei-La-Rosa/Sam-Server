@@ -24,7 +24,7 @@
     margin: 0;
     font-family: Arial, sans-serif;
     background: var(--base-color);
-    color: white;
+    color: var(--text-color);
 }
 
 .left{
@@ -45,23 +45,26 @@
 }
 /* CENTER CONTENT */
 .container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    padding: 2rem;
     align-items: center;
-    margin-top: 50px;
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 2rem;
 }
 
 /* CARD STYLE */
 .card {
-    width: 300px;
-    padding: 30px;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    gap: 1rem;
     border: 2px solid var(--secondary-color);
-    border-radius: 15px;
-    background: var(--base-color);
-    box-shadow: 0 0 20px;
-    transition: 0.3s;
+    border-radius: 3rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;  
 }
 
 .card:hover {

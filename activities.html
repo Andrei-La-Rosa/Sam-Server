@@ -24,13 +24,13 @@
 }
     
 body {
-    margin: 0;
+    padding: 1em;
     font-family: Arial, sans-serif;
     background: var(--base-color);
     color: var(--text-color);
 }
 
-.ri-arrow-left-line{
+.left{
     display: flex;
     padding: 0;
     height: 80px;
@@ -38,8 +38,8 @@ body {
 
 .ri-arrow-left-line{
     color: var(--secondary-color);
-    font-size: 22px;
-    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    margin: 0 10px;
 }
 
 .ri-arrow-left-line:hover{
@@ -65,7 +65,7 @@ h1{
 .card {
     padding: 2rem 2rem;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -105,29 +105,24 @@ h1{
 <div class="container">
     
     <div class="card">
+        <a href=quizzes.html>
         <h2>Quizzes</h2> 
-        <a href=quizzes.html></a>
-        <p id="quizCount">0</p>     
-             
-         
-      
-        
+        <p id="quizCount">0</p>  
+        </a>
     </div>
 
     <div class="card">
+         <a href="activity.html>
          <h2>Lab Work</h2>
-         <a href="activity.html></a>
          <p id="labCount">0</p>
-        
-        
+         </a>
     </div>
 
     <div class="card">
+        <a href="exams.html">
         <h2>Exams</h2>
-        <a href="exams.html"></a>
         <p id="examCount">0</p>    
-            
-       
+        </a> 
     </div>
 
 </div>

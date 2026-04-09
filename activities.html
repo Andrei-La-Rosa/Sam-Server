@@ -1,127 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activities</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Activities</title>
 <style>
 :root {
-    --base-color: #ffffff;
-    --text-color: black;
-    --primary-color: #ffc06e;
-    --secondary-color: #8D8DFF;
-    --color-1: rgba(255, 255, 255, 0.952);
-    --color-2: #cccccc;
-    --color-3: #c9c5cc;
+--base-color: white;
+--text-color: black;
+--primary-color: yellow;
+--secondary-color: #8D8DFF;
+--color-1: gray;
+--color-2: white;
+--color-3: white;
 }
-
+    
 *{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+    body {
     margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--base-color);
+    color: white;
+}
+
+.left{
+    display: flex;
+    justify-content: space-between;
     padding: 0;
-    box-sizing: border-box;
+    height: 80px;
 }
 
-html{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-    color: var(--text-color);
-}
-
-body{
-    display: center;
-    padding: 1em;
-    background-color: var(--base-color);
-}
-
-h1, h2, h3, {
-    font-family: Merriweather, Tahoma, sans-serif;
-}
-
-h1{
-    text-align: center;
+.left a{
     color: var(--secondary-color);
-    font-size: 2.5rem; 
-}
-header {
-    margin: 2rem auto;
-    width min(75em, 100%);
-    background-color: var(--base-color);
-    padding: min(2em, 15%);
-    border-radius: 1em; 
-}
-.Activities{
-    margin-top: 3em;
-    margin-bottom: 3em;
-    display: grid;
-    padding: 3rem 2rem;
-    align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    font-size: 22px;
+    font-weight: 600;
 }
 
-.activity-grid{
-    padding: 3rem 2rem;
+.left a:hover{
+    text-decoration: underline;
+}
+/* CENTER CONTENT */
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 1rem;
-    border: 2px solid var(--secondary-color);
-    border-radius: 3rem;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;  
+    margin-top: 50px;
+    gap: 40px;
 }
-.activity-grid:hover{
+
+/* CARD STYLE */
+.card {
+    width: 300px;
+    padding: 30px;
+    text-align: center;
+    border: 2px solid var(--secondary-color);
+    border-radius: 15px;
+    background: var(--base-color);
+    box-shadow: 0 0 20px;
+    transition: 0.3s;
+}
+
+.card:hover {
     background-color: var(--secondary-color);
     color: var(--base-color);
-    transform: translateY(10px)scale(1.02);
+    transform: scale(1.05);
 }
 
-#img-1{
-    width: 20vw;
-    height: 20vw;
-    border-radius: 1rem;
+/* TEXT */
+.card h2 {
+    margin-bottom: 10px;
 }
 
-#img-2{
-    width: 20vw;
-    height: 20vw;
-    border-radius: 1rem;
+.card p {
+    font-size: 20px;
 }
 
-#img-3{
-    width: 20vw;
-    height: 20vw;
-    border-radius: 1rem;
-}
-
-a{
-    font-family: sans-serif
-    color: var(--secondary-color)
-}
-
-a:hover{
-    text-decoration: underline;
-}
-</style>
+</style>    
 </head>
-    <body>
-        <header>
-        <h1>Activities</h1>
-         <div class="Activities">
-            <div class="activity-grid">   
-            <a href="quizzes.html">Quiz<br><img src="quiz.png" id="img-1"></a>
-            </div>
-            <div class="activity-grid">
-             <a href="Activity.html">Activity<br><img src="activity.webp" id="img-2"></a>
-            </div>
-            <div class="activity-grid">
-             <a href="exam.html">Exam<br><img src="exam.jpg" id="img-3"></a>
-            </div>
-         </div> 
-        <a href="index.html"><- go back?</a>    
-        </header>
-    </body>
+<body>
+
+<!-- NAVBAR -->
+<div class="left">
+    <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+    <div class="card">
+        <h2>Quiz</h2>
+        <p id="quizCount">0</p>
+    </div>
+
+    <div class="card">
+        <h2>Lab Activity</h2>
+        <p id="labCount">0</p>
+    </div>
+
+    <div class="card">
+        <h2>Major Exam</h2>
+        <p id="examCount">0</p>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
 </html>
 
 

@@ -9,82 +9,46 @@
 />
 <title>Quiz Upload</title>
 <style>
-:root {
-    --base-color: #ffffff;
-    --text-color: black;
-    --primary-color: #ffc06e;
-    --secondary-color: #8D8DFF;
-    --color-1: rgba(255, 255, 255, 0.952);
-    --color-2: #cccccc;
-    --color-3: #c9c5cc;
-}
-    
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-    
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--secondary--color);
+  background: #0f0f1a;
+  color: white;
 }
 
-.left{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-    height: 80px;
+/* Navbar */
+.navbar {
+  background: linear-gradient(to right, purple, violet);
+  padding: 15px;
+  text-align: center;
 }
 
-.ri-arrow-left-line a{
-    color: var(--secondary-color);
-    transition: 0.3s ease-in-out;
+.navbar a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.ri-arrow-left-line:hover{
-    text-decoration: underline;
-}
-
-header, section {
-    margin: 2em auto;
-    width min(75em, 100%);
-    background-color: var(--base-color);
-    padding: min(2em, 15%);
-    border-radius: 1em; 
-}
-  
-h2{
-    text-align: center;
-    color: var(--secondary-color);
-}
-    
 /* Container */
 .container {
-    position: relative;
-    maxwidth: 400px;
-    padding: 2rem;
-    text-align: center;
-    border-radius: 5px;
-    background-color var(--secondary-color);
-    bax-shadow: 10px 10px 50px var(--text-color); 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  gap: 40px;
 }
 
 /* Card */
 .card {
-  background: var(--base-color);
+  background: #2b2b3c;
   padding: 40px;
   width: 300px;
   text-align: center;
   border-radius: 15px;
 
   /* Glow effect */
-  box-shadow: 0 0 20px var(--text-color);
+  box-shadow: 0 0 20px purple;
 }
 
 .card h2 {
@@ -105,18 +69,20 @@ input {
 }
 
 button {
-  background: var(--secondary-color);
-  color: var(--base-color);
+  background: purple;
+  color: white;
   padding: 10px;
-  border: none
+  border: none;
   border-radius: 8px;
   cursor: pointer;
 }
 
 button:hover {
-  background: var(--secondary--color);
+  background: violet;
 }
-    
+Sent
+Write to Andrei Samuel La Rosa
+
 </style>
 </head>
 <body>

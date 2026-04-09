@@ -29,13 +29,15 @@ body {
     background: var(--base-color);
     color: var(--text-color);
 }
-
+.left a{
+    transition: 0.3s ease-in-out;
+}
 .ri-arrow-left-line{
+    size: 20px;
     display: flex;
     color: var(--secondary-color);
-    transition: 0.3s ease-in-out;
     height: 80px; 
-    padding: 0;
+    padding: 0; 
 }
 
 .ri-arrow-left-line:hover{
@@ -91,7 +93,7 @@ h1{
 </style>    
 </head>
 <body>
-
+<header>
 <!-- NAVBAR -->
 <div class="left">
     <a href="index.html"><i class="ri-arrow-left-line"></i></i></a>
@@ -123,7 +125,7 @@ h1{
     </div>
 
 </div>
-
+</header>
 <script src="script.js"></script>
 </body>
 </html>

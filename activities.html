@@ -29,18 +29,22 @@ body {
     background: var(--base-color);
     color: var(--text-color);
 }
-.left a{
-    transition: 0.3s ease-in-out;
+
+.left{
+    color: var(--secondary-color);
+    font-size: 22px;
+    font-weight: 600px;
 }
-.ri-arrow-left-line{
-    size: 20px;
+    
+.left a{
     display: flex;
     color: var(--secondary-color);
+    transition: 0.3s ease-in-out;
     height: 80px; 
-    padding: 0; 
+    margin: 5rem;
 }
 
-.ri-arrow-left-line:hover{
+.left a:hover{
     text-decoration: underline;
 }
     
@@ -96,7 +100,7 @@ h1{
 <header>
 <!-- NAVBAR -->
 <div class="left">
-    <a href="index.html"><i class="ri-arrow-left-line"></i></i></a>
+    <a href="index.html"><strong><-</strong></a>
 </div>
 
 <!-- CONTENT -->

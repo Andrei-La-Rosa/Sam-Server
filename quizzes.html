@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link
+  href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+  rel="stylesheet"
+/>
 <title>Quiz Upload</title>
 <style>
 :root {
@@ -29,7 +33,24 @@ body {
   justify-content: center;
   background-color: var(--secondary--color);
 }
+    
+.left{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    height: 80px;
+}
 
+.ri-arrow-left-line a{
+    color: var(--secondary-color);
+    transition: 0.3s ease-in-out;
+}
+
+.ri-arrow-left-line:hover{
+    text-decoration: underline;
+}
+    
 h2{
     text-align: center;
     color: var(--secondary-color);
@@ -91,7 +112,9 @@ button:hover {
 </style>
 </head>
 <body>
-
+<div class="left">
+            <a href="activities.html"><i class="ri-arrow-left-line"></i></a>
+            </div>
 <div class="container">
     <div class="card">
         <h2>Quiz Upload</h2>

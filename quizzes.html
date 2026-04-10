@@ -40,7 +40,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: (--base-color);
+  background: var(--base-color);
   color: var(--secondary-color);
 }
 
@@ -55,7 +55,7 @@ body {
 
 /* Card */
 .card {
-  background: (--secondary-color);
+  background: var(--secondary-color);
   padding: 40px;
   width: 300px;
   text-align: center;
@@ -77,14 +77,24 @@ form {
 }
 
 input {
-  color: var(--secondary-color)
   padding: 10px;
   border-radius: 5px;
   border: none;
 }
+  
+input:before{
+  display: inline-block;
+  background-color: color: var(--color-1);
+  border-radius: .5em;
+}
 
+input:after{
+  display: inline-block;
+  background-color: color: var(--color-1);
+  border-radius: .5em;
+}
 button {
-  background: (--secondary-color);
+  background: var(--secondary-color);
   padding: 10px;
   border: none;
   border-radius: 8px;

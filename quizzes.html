@@ -21,7 +21,7 @@
 .left{
     color: var(--secondary-color);
     font-size: 22px;
-    font-weight: 600; /* FIXED (removed px) */
+    font-weight: 600; 
 }
     
 .left a {
@@ -51,7 +51,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: var(--base-color);
-  color: var(--color-2);
+  color: var(--text-color);
 }
 
 /* Container */
@@ -65,7 +65,7 @@ body {
 
 /* Card */
 .card {
-  background: var(--secondary-color);
+  background: var(--base-color);
   padding: 40px;
   width: 300px;
   text-align: center;
@@ -88,7 +88,7 @@ form {
 
 input {
   padding: 10px;
-  border: 1px solid ;
+  border: 1px solid var(--secondary-color);
   border-radius: 4px;
   font-size: 14px;
 }
@@ -97,12 +97,11 @@ input[type="file"] {
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  background-color: white;
+  background-color: var(--color-1);
 }
 
-/* This targets the actual button */
 input[type="file"]::file-selector-button {
-  background-color: gray; /* your gray rectangle */
+  background-color: gray; 
   color: white;
   border: none;
   padding: 8px 12px;
@@ -114,7 +113,18 @@ input[type="file"]::file-selector-button {
 input[type="file"]::file-selector-button:hover {
   background-color: #555;
 }
-
+  
+button { 
+  background: var(--secondary-color);
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+} 
+  
+  button:hover { 
+    text-decoration: underline; 
+  }
 </style>
 </head>
 <body>
@@ -129,13 +139,13 @@ input[type="file"]::file-selector-button:hover {
         <h2>Quiz Upload</h2>
         <form id="quiz-form">
         <label>Title:</label>
-        <input type="text" id="title">
+        <input type="text" id="title"><br>
 
-        <label>Upload File:</label><br>
-        <input type="file" id="file">
+        <label>Upload File:</label>
+        <input type="file" id="file"><br>
 
-        <label>Upload Image:</label><br>
-        <input type="file" id="image">
+        <label>Upload Image:</label>
+        <input type="file" id="image"><br>
 
         <button onclick="submitQuiz()">Submit</button>
         </form>

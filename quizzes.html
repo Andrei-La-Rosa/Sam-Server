@@ -27,8 +27,6 @@
 .left a{
     display: flex;
     color: var(--secondary-color);
-    transition: 0.3s ease-in-out;
-    cursor: pointer;
     height: 80px; 
     margin: 5rem;
 }
@@ -41,7 +39,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: var(--base-color);
-  color: var(--secondary-color);
+  color: var(--color-2);
 }
 
 /* Container */
@@ -78,31 +76,31 @@ form {
 
 input {
   padding: 10px;
-  border-radius: 5px;
-  border: none;
+  border: 1px solid ;
+  border-radius: 4px;
+  font-size: 14px;
 }
   
-input:before{
-  display: inline-block;
-  background-color: color: var(--color-1);
-  border-radius: .5em;
+input[type="file"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
 }
 
-input:after{
-  display: inline-block;
-  background-color: color: var(--color-1);
-  border-radius: .5em;
-}
-button {
-  background: var(--secondary-color);
-  padding: 10px;
+/* This targets the actual button */
+input[type="file"]::file-selector-button {
+  background-color: gray; /* your gray rectangle */
+  color: white;
   border: none;
-  border-radius: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
   cursor: pointer;
+  margin-right: 10px;
 }
 
-button:hover {
-  text-decoration: underline; 
+input[type="file"]::file-selector-button:hover {
+  background-color: #555;
 }
 
 </style>

@@ -21,20 +21,22 @@
 .left{
     color: var(--secondary-color);
     font-size: 22px;
-    font-weight: 600px;
+    font-weight: 600; /* FIXED (removed px) */
 }
     
 .left a{
     display: flex;
     color: var(--secondary-color);
+    transition: 0.3s ease-in-out;
     height: 80px; 
     margin: 5rem;
+    text-decoration: none; /* cleaner link */
 }
 
 .left a:hover{
     text-decoration: underline;
 }
-    
+  
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -108,7 +110,9 @@ input[type="file"]::file-selector-button:hover {
 <body>
 <header>
 <div class="left">
-            <a href="activities.html"><strong><-</strong></a>
+            <a href="activities.html">
+              <i class="ri-arrow-left-line"></i>
+            </a>
             </div>
 <div class="container">
     <div class="card">

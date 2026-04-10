@@ -95,7 +95,7 @@ input {
   
 input[type="file"] {
   padding: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--secondary-color);
   border-radius: 6px;
   background-color: var(--color-1);
 }
@@ -111,7 +111,8 @@ input[type="file"]::file-selector-button {
 }
 
 input[type="file"]::file-selector-button:hover {
-  background-color: black;
+  text-decoration: underline;
+  color: var(--secondary-color);
 }
   
 button { 
@@ -124,7 +125,8 @@ button {
 } 
   
   button:hover { 
-    text-decoration: underline; 
+    text-decoration: underline;
+    color: var(--secondary-color);
   }
 </style>
 </head>

@@ -78,7 +78,7 @@ header {
 }
 
 /* PROFILE */
-.profile__details{
+.profile-details{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,11 +86,13 @@ header {
     gap: 1.5em; /* reduced */
 }
 
-.profile-details img {
-    border-radius: 10px;
-    max-height: 350px; /* reduced height */
-    object-fit: cover;
-    box-shadow: 10px 10px 50px gray; 
+.profile__details img { 
+ border-radius: 10px;
+ max-width: 100%;
+ align-items: center;
+ object-fit: cover;
+ object-position: bottom;
+ box-shadow: 10px 10px 50px gray; 
 }
 
 /* FIXED class name */
@@ -168,8 +170,8 @@ h1{
         </div>
 
         <div class="right">
-            <a href="activities.html">Activities</a>
-            <a href="quizzes.html">Quizzes</a>
+            <a href="activities.html">Activity</a>
+            <a href="quizzes.html">Quiz</a>
             <a href="Activity.html">Lab Works</a>
             <a href="exam.html">Exams</a>
         </div>

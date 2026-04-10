@@ -27,7 +27,7 @@
 }
 
 html{
-    font-family: Merriweather, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Merriweather, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
     color: var(--text-color);
 }
 
@@ -36,8 +36,7 @@ body{
     background-color: var(--base-color);
 }
 
-/* FIXED */
-h1, h2, h3 {
+h1, h2, h3, {
     font-family: Merriweather, 'Segoe UI', Tahoma;
 }
 
@@ -45,7 +44,8 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px; /* reduced height */
+    padding: 0;
+    height: 80px;
 }
 
 nav .left a{
@@ -54,46 +54,54 @@ nav .left a{
     font-weight: 600;
 }
 
+@media (max-width: 480px){
+    nav{
+        padding 0 20px;
+    }
+}
+
 nav .right a{
     color: var(--secondary-color); 
+    font-family: Merriweather, sans-serif;
     font-weight: bold;
     margin: 0 10px;
+    size
 }
 
 nav a {
     text-decoration: none;
+    color: var(--secondary-color); 
     transition: 0.3s ease-in-out; 
 }
 
 nav a:hover {
     text-decoration: underline;
 }
-header {
-    margin: 1em auto;
-    width: min(75em, 100%);
+
+header, section {
+    margin: 2em auto;
+    width min(75em, 100%);
     background-color: var(--base-color);
     padding: 1.5em;
     border-radius: 1em; 
 }
 
-/* PROFILE */
-.profile-details{
-    display: flex;
+.profile__details{
+   display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1.5em; 
+    gap: 3em; 
 }
 
-.profile-details img{ 
- border-radius: 10px;
- max-width: 100%;
- align-items: center;
- object-fit: cover;
- object-position: bottom;
- box-shadow: 10px 10px 50px gray; 
+.profile__details img {
+    border-radius: 10px;
+    max-width: 100%;
+    align-items: center;
+    object-fit: cover;
+    object-position: bottom;
+    box-shadow: 10px 10px 50px gray; 
 }
-
 /* FIXED class name */
 .text-container{
     flex: 0 1 34em;

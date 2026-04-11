@@ -153,6 +153,33 @@ button {
     </div>
 </div>
 </header>
-<script src="script.js"></script>
+<script>
+function submitLab() {
+    const title = document.getElementById("title").value.trim();
+    const fileInput = document.getElementById("file").files[0];
+
+    if (!title || !fileInput) {
+        alert("Please complete all fields!");
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function () {
+        let activity = JSON.parse(localStorage.getItem("activity")) || [];
+
+        activity.push({
+            title: title,
+            file: reader.result,   // 🔥 store FILE here
+            fileName: fileInput.name
+        });
+
+        localStorage.setItem("activity", JSON.stringify(activity));
+
+        alert("Lab submitted!");
+        document.getElementById("lab-form").reset();
+    };
+</script>
+</script>
 </body>
 </html>

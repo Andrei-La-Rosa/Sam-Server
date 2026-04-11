@@ -148,12 +148,15 @@ button {
         <label>Upload Image:</label>
         <input type="file" id="image"><br>
 
-        <button onclick="submitLab()">Submit</button>
+        <button type="button" onclick="submitLab()">Submit</button>
         </form>
     </div>
 </div>
 </header>
 <script>
+document.getElementById("lab-form").addEventListener("submit", function(e){
+    e.preventDefault();
+});
 function submitLab() {
     const title = document.getElementById("title").value.trim();
     const fileInput = document.getElementById("file").files[0];
@@ -165,7 +168,7 @@ function submitLab() {
 
     const reader = new FileReader();
 
-    reader.onload = function () {
+    reader.readAsDataURL(FileInput);
         let activity = JSON.parse(localStorage.getItem("activity")) || [];
 
         activity.push({
@@ -179,7 +182,6 @@ function submitLab() {
         alert("Lab submitted!");
         document.getElementById("lab-form").reset();
     };
-</script>
 </script>
 </body>
 </html>

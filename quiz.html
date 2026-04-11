@@ -119,7 +119,8 @@ header, section {
             </a>
     </div>
     <h1>My Quizzes</h1>
-    <div class="grid-container">
+    <div class="grid-container">
+
     </div>
     </header>
 
@@ -141,7 +142,7 @@ function loadQuizzes() {
 
     let btn = document.createElement("button");
     btn.textContent = "Delete";
-
+       });
     // 🔥 delete function
     btn.addEventListener("click", () => {
       deleteQuiz(index);

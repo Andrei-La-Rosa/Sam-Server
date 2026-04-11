@@ -155,10 +155,26 @@ function loadActivity() {
             </a>
         `;
 
-        container.appendChild(card);
-    });
-}
+    let btn = document.createElement("button");
+    btn.textContent = "Delete";
 
+    // 🔥 delete function
+    btn.addEventListener("click", () => {
+      deleteItem(index);
+
+    });
+  card.appendChild(btn);
+  container.appendChild(card);
+}
+function deleteQuiz(index) {
+    let labworks = JSON.parse(localStorage.getItem("labworks")) || [];
+
+    labworks.splice(index, 1);
+
+    localStorage.setItem("labworks", JSON.stringify(labworks));
+
+    loadQuizzes(); // refresh
+}
 loadActivity();
 </script>
 </script>

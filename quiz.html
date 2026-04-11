@@ -151,6 +151,15 @@ function loadQuizzes() {
   container.appendChild(card);
 }
 
+function deleteQuiz(index) {
+    let quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+
+    quizzes.splice(index, 1);
+
+    localStorage.setItem("quizzes", JSON.stringify(quizzes));
+
+    loadQuizzes(); // refresh
+}
 loadQuizzes();
 </script>
 </body>

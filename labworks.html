@@ -103,13 +103,7 @@ header, section{
     border-radius: .5em;
     transition: 100ms ease;
 }
-
-.grid-container img{
-    width: 20vw;
-    height: 20vw;
-   
-}
-
+
 .grid-container img:hover{
     transform: translateY(20px)scale(1.02);
     scale: 1.05;
@@ -117,7 +111,7 @@ header, section{
 
 a{
     font-family: sans-serif;
-    color: var(--secondary-color)
+    color: var(--secondary-color);
 }
 
 a:hover{
@@ -133,7 +127,9 @@ a:hover{
             </a>
     </div>
     <h1>My Activities</h1>
-    <div class="grid-container">
+    <div class="grid-container">
+
+    </div>
     </header>
 </body>
 
@@ -157,7 +153,7 @@ function loadActivity() {
 
     let btn = document.createElement("button");
     btn.textContent = "Delete";
-
+       });
     // 🔥 delete function
     btn.addEventListener("click", () => {
       deleteItem(index);

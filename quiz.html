@@ -152,13 +152,13 @@ function loadQuizzes() {
 }
 
 function deleteQuiz(index) {
-    let quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+    let quiz = JSON.parse(localStorage.getItem("quiz")) || [];
 
-    quizzes.splice(index, 1);
+    quiz.splice(index, 1);
 
-    localStorage.setItem("quizzes", JSON.stringify(quizzes));
+    localStorage.setItem("quiz", JSON.stringify(quiz));
 
-    loadQuizzes(); // refresh
+    loadQuiz(); // refresh
 }
 loadQuizzes();
 </script>

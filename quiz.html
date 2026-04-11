@@ -23,7 +23,7 @@
 }
 
 html{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text-color);
 }
 
@@ -70,13 +70,7 @@ header, section {
     border-radius: .5em;
     transition: 100ms ease;
 }
-
-.grid-container img{
-    width: 20vw;
-    height: 20vw;
-   
-}
-
+
 .grid-container img:hover{
     transform: translateY(20px)scale(1.02);
     scale: 1.05;
@@ -86,17 +80,31 @@ header, section {
 <body>
     <header>
     <h1>My Quizzes</h1>
-    <div class="grid-container">
-        <p>Quiz #1<br><img src="" ></p>
-        <p>Quiz #2<br><img src=""></p>
-        <p>Quiz #3<br><img src=""></p>
-        <p>Quiz #4<br><img src="" ></p>
-        <p>Quiz #5<br><img src="" ></p>
-        <p>Quiz #6<br><img src="" ></p>
-        <p>Quiz #7<br><img src="" ></p>
-        <p>Quiz #8<br><img src="" ></p>
-        <p>Quiz #9<br><img src="" ></p>
+    <div class="grid-container">
     </div>
     </header>
+
+<script>
+function loadQuizzes() {
+    let container = document.querySelector(".grid-container");
+
+    let quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+
+    container.innerHTML = "";
+
+    quizzes.forEach((quiz, index) => {
+        let card = document.createElement("div");
+
+        card.innerHTML = `
+            <img src="${quiz.image}" alt="quiz image">
+            <p>${quiz.title}</p>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+loadQuizzes();
+</script>
 </body>
 </html>

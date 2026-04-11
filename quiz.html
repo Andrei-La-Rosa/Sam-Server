@@ -139,8 +139,16 @@ function loadQuizzes() {
             <p>${quiz.title}</p>
         `;
 
-        container.appendChild(card);
+    let btn = document.createElement("button");
+    btn.textContent = "Delete";
+
+    // 🔥 delete function
+    btn.addEventListener("click", () => {
+      deleteQuiz(index);
+
     });
+  card.appendChild(btn);
+  container.appendChild(card);
 }
 
 loadQuizzes();

@@ -148,11 +148,44 @@ button {
         <label>Upload Image:</label>
         <input type="file" id="image"><br>
 
-        <button onclick="submitExam()">Submit</button>
+        <button type="button" onclick="submitExam()">Submit</button>
         </form>
     </div>
 </div>
 </header>
-<script src="script.js"></script>
+<script>
+document.getElementById("exam-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+});
+
+function submitExam() {
+
+    const title = document.getElementById("title").value.trim();
+    const imageInput = document.getElementById("image").files[0];
+
+    if (!title || !imageInput) {
+        alert("Please complete all fields!");
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function () {
+        let exams = JSON.parse(localStorage.getItem("exams")) || [];
+
+        quizzes.push({
+            title: title,
+            image: reader.result
+        });
+
+        localStorage.setItem("exams", JSON.stringify(exams));
+
+        alert("Exam submitted!");
+        document.getElementById("exam-form").reset();
+    };
+
+    reader.readAsDataURL(imageInput);
+}
+</script>
 </body>
 </html>

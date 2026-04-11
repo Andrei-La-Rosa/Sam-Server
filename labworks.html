@@ -145,13 +145,13 @@ function loadActivity() {
 
     container.innerHTML = "";
 
-    activity.forEach((labworks) => {
+    activity.forEach((item) => {
         let card = document.createElement("div");
 
         card.innerHTML = `
-            <h3>${labworks.title}</h3>
-            <a href="{labworks.file}" target="_blank">
-                📄 Open File ${labworks.fileName})
+            <h3>${item.title}</h3>
+            <a href="${item.file}" target="_blank">
+                📄 Open File ${item.fileName})
             </a>
         `;
 

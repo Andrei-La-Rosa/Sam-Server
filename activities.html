@@ -166,6 +166,10 @@ function updateCounts() {
 
 // Run when page loads
 updateCounts();
+
+window.addEventListener("storage", () => {
+    updateCounts();
+});
 </script>
 </body>
 </html>

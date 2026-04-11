@@ -18,6 +18,14 @@
 --color-2: white;
 --color-3: white;
 }
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* pushes left left, right right */
+  width: 100%;
+}
+
 .left{
     color: var(--secondary-color);
     font-size: 22px;
@@ -155,6 +163,7 @@ button {
 </head>
 <body>
 <header>
+<nav>
 <div class="left">
      <a href="activities.html">
         <i class="ri-arrow-left-line"></i>
@@ -165,6 +174,7 @@ button {
         <i class="ri-arrow-right-line"></i>
     </a>
 </div>
+</nav>
 <div class="container">
     <div class="card">
         <h2>Quiz Upload</h2>

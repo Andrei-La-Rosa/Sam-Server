@@ -149,12 +149,27 @@ function loadExams() {
             <img src="${exams.image}" alt="exam image">
             <p>${exams.title}</p>
         `;
+    let btn = document.createElement("button");
+    btn.textContent = "Delete";
 
-        container.appendChild(card);
+    // 🔥 delete function
+    btn.addEventListener("click", () => {
+      deleteExams(index);
+
     });
+  card.appendChild(btn);
+  container.appendChild(card);
 }
+function deleteExams(index) {
+    let exams = JSON.parse(localStorage.getItem("exams")) || [];
 
-loadQuizzes();
+    exams.splice(index, 1);
+
+    localStorage.setItem("exams", JSON.stringify(exams));
+
+    loadExams(); // refresh
+}
+loadExams();
 </script>
 </body>
 </html>

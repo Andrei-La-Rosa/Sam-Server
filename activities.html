@@ -151,7 +151,22 @@ h1{
 
 </div>
 
-<script src="script.js"></script>
+<script>
+function updateCounts() {
+    // Get data from localStorage
+    let quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+    let labs = JSON.parse(localStorage.getItem("labs")) || [];
+    let exams = JSON.parse(localStorage.getItem("exams")) || [];
+
+    // Update dashboard numbers
+    document.getElementById("quizCount").textContent = quizzes.length;
+    document.getElementById("labCount").textContent = labs.length;
+    document.getElementById("examCount").textContent = exams.length;
+}
+
+// Run when page loads
+updateCounts();
+</script>
 </body>
 </html>
 

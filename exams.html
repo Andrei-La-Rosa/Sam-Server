@@ -25,7 +25,7 @@
 }
 
 html{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text-color);
 }
 
@@ -101,11 +101,7 @@ header, section{
     border-radius: .5em;
     transition: 100ms ease;
 }
-
-.grid-container img{
-    width: 20vw;
-    height: 20vw;
-   
+
 }
 
 .grid-container img:hover{
@@ -114,8 +110,8 @@ header, section{
 }
 
 a{
-    font-family: sans-serif
-    color: var(--secondary-color)
+    font-family: sans-serif;
+    color: var(--secondary-color);
 }
 
 a:hover{
@@ -133,6 +129,7 @@ a:hover{
     <h1>My Exams</h1>
     <div class="grid-container">
 
+    </div>
     </header>
 <script>
 function loadExams() {
@@ -151,8 +148,8 @@ function loadExams() {
         `;
     let btn = document.createElement("button");
     btn.textContent = "Delete";
-
-    // 🔥 delete function
+        }) ;
+    //🔥delete function
     btn.addEventListener("click", () => {
       deleteExams(index);
 

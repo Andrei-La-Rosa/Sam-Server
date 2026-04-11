@@ -148,13 +148,18 @@ button {
         <label>Upload Image:</label>
         <input type="file" id="image"><br>
 
-        <button onclick="submitQuiz()">Submit</button>
+        <button type="button" onclick="submitQuiz()">Submit</button>
         </form>
     </div>
 </div>
 </header>
-<script src>
+<script>
+document.getElementById("quiz-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+});
+
 function submitQuiz() {
+
     const title = document.getElementById("title").value.trim();
     const imageInput = document.getElementById("image").files[0];
 
@@ -170,7 +175,7 @@ function submitQuiz() {
 
         quizzes.push({
             title: title,
-            image: reader.result // 🔥 save image
+            image: reader.result
         });
 
         localStorage.setItem("quizzes", JSON.stringify(quizzes));
@@ -179,7 +184,7 @@ function submitQuiz() {
         document.getElementById("quiz-form").reset();
     };
 
-    reader.readAsDataURL(imageInput); // convert image
+    reader.readAsDataURL(imageInput);
 }
 </script>
 </body>

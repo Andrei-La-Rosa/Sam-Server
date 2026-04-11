@@ -153,6 +153,34 @@ button {
     </div>
 </div>
 </header>
-<script src="script.js"></script>
+<script src>
+function submitQuiz() {
+    const title = document.getElementById("title").value.trim();
+    const imageInput = document.getElementById("image").files[0];
+
+    if (!title || !imageInput) {
+        alert("Please complete all fields!");
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function () {
+        let quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+
+        quizzes.push({
+            title: title,
+            image: reader.result // 🔥 save image
+        });
+
+        localStorage.setItem("quizzes", JSON.stringify(quizzes));
+
+        alert("Quiz submitted!");
+        document.getElementById("quiz-form").reset();
+    };
+
+    reader.readAsDataURL(imageInput); // convert image
+}
+</script>
 </body>
 </html>

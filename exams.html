@@ -135,7 +135,26 @@ a:hover{
 
     </header>
 <script>
+function loadExams() {
+    let container = document.querySelector(".grid-container");
 
+    let exams = JSON.parse(localStorage.getItem("exams")) || [];
+
+    container.innerHTML = "";
+
+    exams.forEach((exams, index) => {
+        let card = document.createElement("div");
+
+        card.innerHTML = `
+            <img src="${exams.image}" alt="exam image">
+            <p>${exams.title}</p>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+loadQuizzes();
 </script>
 </body>
 </html>

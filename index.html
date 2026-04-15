@@ -162,7 +162,31 @@ h1{
 @keyframes bounceTT {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
+
+@media(max-width: 640px){
+  header {
+  text-align: center;
+  }
+  
+  header text-container{
+  padding-top: 0;
+ }
+
+@media(max-width: 480px){
+  nav{
+  display: none;
+  } 
+
+  .left, 
+  .right{
+  display: block
+  } 
+
+  header{
+  margin-top: 0;
+  } 
 }
+
 
 </style>
 </head>
@@ -210,22 +234,4 @@ h1{
 </header>
 
 </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</html>

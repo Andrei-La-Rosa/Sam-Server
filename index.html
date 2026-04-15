@@ -173,12 +173,12 @@ h1{
  }
 
 @media(max-width: 480px){
-  nav{
+  nav a{
   display: none;
   } 
 
   .left, 
-  .right{
+  .right::first-child{
   display: block
   }
 
@@ -188,6 +188,9 @@ h1{
 
   .text-container p{
   font-size: 1rem;
+
+  .profile-details img{
+  height: 300px;
   }
 }
 

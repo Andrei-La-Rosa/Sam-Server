@@ -1,4 +1,26 @@
-<!DOCTYPE html>
+@media (max-width: 480px) {
+
+  .card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .left a {
+    left: 10px;
+  }
+
+  .right a {
+    right: 10px;
+  }
+
+  .container {
+    margin-top: 80px; /* avoid overlap with arrows */
+  }
+
+  input, button {
+    font-size: 16px; /* better tap usability */
+  }
+}<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -131,25 +153,29 @@ button {
     
   }
 
-@media(max-width: 640px){
-  header {
-  text-align: center;
+@media (max-width: 480px) {
+
+  .card {
+    padding: 20px;
+    border-radius: 12px;
   }
-  
-  header.container{
-  padding-top: 0;
- }
 
-@media(max-width: 480px){
-
-  header{
-  margin-top: 0;
-  } 
-
-  .card{
-  font-size: 1rem;
-  padding: 0 20px;
+  .left a {
+    left: 10px;
   }
+
+  .right a {
+    right: 10px;
+  }
+
+  .container {
+    margin-top: 80px; /* avoid overlap with arrows */
+  }
+
+  input, button {
+    font-size: 16px; /* better tap usability */
+  }
+}
 
 </style>
 </head>

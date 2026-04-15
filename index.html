@@ -80,36 +80,6 @@ header, section {
     min-width: 250px;
 }
 
-@media (max-width: 480px){
-   header {
-   margin-top: 0;
- } 
-
-    nav .right{        
-    gap: 10px;  
-    display: none;      
- }    
-
-   nav .right a[href="activities.html"] {      
-    display: inline-block;
- }   
-     h1{        
-     font-size: 1.6rem;    
- }     
-    .text-container p{        
-    font-size: 0.95rem;    
- }   
-    .profile-details{        
-    gap: 1.5em;    
- }    
-    .profile-details img{        
-     max-width: 100%;    
- }  
-     .social-icons{       
-      gap: 1.2rem;    
- }
-}
-
 h1{
     text-align: center;
     color: var(--secondary-color);
@@ -167,6 +137,36 @@ h1{
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
 } 
+
+@media (max-width: 480px){
+   header {
+   margin-top: 0;
+ } 
+
+    nav .right a{        
+    gap: 10px;  
+    display: none;      
+ }    
+
+   nav .right a[href="activities.html"] {      
+    display: inline-block;
+ }   
+     h1{        
+     font-size: 1.6rem;    
+ }     
+    .text-container p{        
+    font-size: 0.95rem;    
+ }   
+    .profile-details{        
+    gap: 1.5em;    
+ }    
+    .profile-details img{        
+     max-width: 100%;    
+ }  
+     .social-icons{       
+      gap: 1.2rem;    
+ }
+}
 </style>
 </head>
 

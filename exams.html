@@ -178,33 +178,36 @@ function loadExams() {
 
     container.innerHTML = "";
 
-    exams.forEach((exams, index) => {
+    exams.forEach((exam, index) => {
         let card = document.createElement("div");
 
         card.innerHTML = `
-            <img src="${exams.image}" alt="exam image">
-            <p>${exams.title}</p>
+            <img src="${exam.image}" alt="exam image">
+            <p>${exam.title}</p>
         `;
-    let btn = document.createElement("button");
-    btn.textContent = "Delete";
-        }) ;
-    //🔥delete function
-    btn.addEventListener("click", () => {
-      deleteExams(index);
 
+        let btn = document.createElement("button");
+        btn.textContent = "Delete";
+
+        btn.addEventListener("click", () => {
+            deleteExam(index);
+        });
+
+        card.appendChild(btn);
+        container.appendChild(card);
     });
-  card.appendChild(btn);
-  container.appendChild(card);
 }
-function deleteExams(index) {
+
+function deleteExam(index) {
     let exams = JSON.parse(localStorage.getItem("exams")) || [];
 
     exams.splice(index, 1);
 
     localStorage.setItem("exams", JSON.stringify(exams));
 
-    loadExams(); // refresh
+    loadExams();
 }
+
 loadExams();
 </script>
 </body>

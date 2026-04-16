@@ -179,27 +179,28 @@ function loadQuizzes() {
             <p>${quiz.title}</p>
         `;
 
-    let btn = document.createElement("button");
-    btn.textContent = "Delete";
-       });
-    // 🔥 delete function
-    btn.addEventListener("click", () => {
-      deleteQuiz(index);
+        let btn = document.createElement("button");
+        btn.textContent = "Delete";
 
+        btn.addEventListener("click", () => {
+            deleteQuiz(index);
+        });
+
+        card.appendChild(btn);
+        container.appendChild(card);
     });
-  card.appendChild(btn);
-  container.appendChild(card);
 }
 
 function deleteQuiz(index) {
-    let quiz = JSON.parse(localStorage.getItem("quiz")) || [];
+    let quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
 
-    quiz.splice(index, 1);
+    quizzes.splice(index, 1);
 
-    localStorage.setItem("quiz", JSON.stringify(quiz));
+    localStorage.setItem("quizzes", JSON.stringify(quizzes));
 
-    loadQuiz(); // refresh
+    loadQuizzes(); // refresh
 }
+
 loadQuizzes();
 </script>
 </body>

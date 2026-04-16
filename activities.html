@@ -31,10 +31,24 @@ body {
     color: var(--text-color);
 }
 
+/* PAGE LOAD ANIMATION */
+body {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: pageEnter 0.6s ease forwards;
+}
+
+@keyframes pageEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .left{
     color: var(--secondary-color);
     font-size: 22px;
-    font-weight: 600; /* FIXED (removed px) */
+    font-weight: 600;
 }
     
 .left a {
@@ -63,6 +77,7 @@ body {
     
 /* CENTER CONTENT */
 h1{
+    margin-top: 30px;
     text-align: center;
     color: var(--secondary-color);
     font-size: 2.5rem; 
@@ -73,12 +88,13 @@ h1{
     display: grid;
     padding: 1rem;
     align-items: center;
-    grid-template-columns: 1fr;
+    grid-template-columns: ;
     gap: 1.5rem;
     max-width: 400px;
 }
 
 /* CARD STYLE */
+
 .card {
     padding: 2rem;
     display: flex;
@@ -91,6 +107,20 @@ h1{
     transition: 0.3s ease-in-out;  
 }
 
+.card {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: cardPop 0.5s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes cardPop {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .card a{
     text-decoration: none;
     color: inherit;
@@ -100,7 +130,7 @@ h1{
 .card:hover {
     background-color: var(--secondary-color);
     color: var(--base-color);
-    transform: scale(1.05);
+    transform: translateY(10px);
 }
 
 /* TEXT */

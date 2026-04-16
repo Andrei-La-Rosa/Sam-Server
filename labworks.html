@@ -171,37 +171,45 @@ a:hover{
 </body>
 
 <script>
-activity.forEach((item, index) => {
-    let card = document.createElement("div");
+function loadLabworks() {
+    let container = document.querySelector(".grid-container");
 
-    card.innerHTML = `
-        <h3>${item.title}</h3>
-        <a href="${item.file}" target="_blank">
-            📄 Open File (${item.fileName})
-        </a>
-    `;
+    let labworks = JSON.parse(localStorage.getItem("labworks")) || [];
 
-    let btn = document.createElement("button");
-    btn.textContent = "Delete";
+    container.innerHTML = "";
 
-    btn.addEventListener("click", () => {
-        deleteActivity(index);
+    labworks.forEach((item, index) => {
+        let card = document.createElement("div");
+
+        card.innerHTML = `
+            <h3>${item.title}</h3>
+            <a href="${item.file}" target="_blank">
+                📄 Open File (${item.fileName})
+            </a>
+        `;
+
+        let btn = document.createElement("button");
+        btn.textContent = "Delete";
+
+        btn.addEventListener("click", () => {
+            deleteLabwork(index);
+        });
+
+        card.appendChild(btn);
+        container.appendChild(card);
     });
+}
 
-    card.appendChild(btn);
-    container.appendChild(card);
-});
+function deleteLabwork(index) {
 
-function deleteActivity(index) {
-    let activity = JSON.parse(localStorage.getItem("activity")) || [];
+    let labworks = JSON.parse(localStorage.getItem("labworks")) || [];
 
     labworks.splice(index, 1);
 
-    localStorage.setItem("activity", JSON.stringify(activity));
+    localStorage.setItem("labworks", JSON.stringify(labworks));
 
-    loadActivity(); // refresh
+    loadLabworks(); // refresh UI
 }
-loadActivity();
 </script>
 </script>
 </html>

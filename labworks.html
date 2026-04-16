@@ -171,42 +171,35 @@ a:hover{
 </body>
 
 <script>
-function loadActivity() {
-    let container = document.querySelector(".grid-container");
+activity.forEach((item, index) => {
+    let card = document.createElement("div");
 
-    let activity = JSON.parse(localStorage.getItem("activity")) || [];
-
-    container.innerHTML = "";
-
-    activity.forEach((item) => {
-        let card = document.createElement("div");
-
-        card.innerHTML = `
-            <h3>${item.title}</h3>
-            <a href="${item.file}" target="_blank">
-                📄 Open File ${item.fileName})
-            </a>
-        `;
+    card.innerHTML = `
+        <h3>${item.title}</h3>
+        <a href="${item.file}" target="_blank">
+            📄 Open File (${item.fileName})
+        </a>
+    `;
 
     let btn = document.createElement("button");
     btn.textContent = "Delete";
-       });
-    // 🔥 delete function
-    btn.addEventListener("click", () => {
-      deleteItem(index);
 
+    btn.addEventListener("click", () => {
+        deleteActivity(index);
     });
-  card.appendChild(btn);
-  container.appendChild(card);
-}
-function deleteQuiz(index) {
-    let labworks = JSON.parse(localStorage.getItem("labworks")) || [];
+
+    card.appendChild(btn);
+    container.appendChild(card);
+});
+
+function deleteActivity(index) {
+    let activity = JSON.parse(localStorage.getItem("activity")) || [];
 
     labworks.splice(index, 1);
 
-    localStorage.setItem("labworks", JSON.stringify(labworks));
+    localStorage.setItem("activity", JSON.stringify(activity));
 
-    loadQuizzes(); // refresh
+    loadActivity(); // refresh
 }
 loadActivity();
 </script>

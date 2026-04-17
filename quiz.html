@@ -99,13 +99,13 @@ header, section {
     border-radius: 1em; 
 }
 
-.grid-container{
+.grid-container {
     display: grid;
-    padding: 2rem;
-    align-items: center;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-items: center; /* 🔥 centers cards */
+    gap: 2rem;
 }
+
 .grid-container p{
     padding: 1rem;
     font-family: merriweather;
@@ -125,8 +125,10 @@ header, section {
 }
 
 .card{
+    width: 250px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
 } 
 

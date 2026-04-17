@@ -200,6 +200,7 @@ function loadLabworks() {
 
     labworks.forEach((item, index) => {
         let card = document.createElement("div");
+        card.classList.add("card");
 
         card.innerHTML = `
             <h3>${item.title}</h3>

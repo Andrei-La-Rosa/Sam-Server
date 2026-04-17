@@ -102,7 +102,7 @@ header, section {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    justify-items: center; /* 🔥 centers cards */
+    justify-items: center;
     gap: 2rem;
 }
 
@@ -122,29 +122,22 @@ header, section {
 .grid-container img:hover{
     transform: translateY(20px)scale(1.02);
     scale: 1.05;
-}
+} 
 
-.card{
-    width: 250px;
+.card {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-} 
-
-.card button{
-    align-self: center;
-} 
+}
 
 .card button {
     background-color: var(--secondary-color);
     color: white;
     border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 14px;
-    transition: 0.3s;
 }
 
 .card button:hover {
@@ -163,7 +156,8 @@ header, section {
 @media(max-width: 480px){
   .grid-container{
    display: flex;
-   flex-flow: row;
+   grid
+
   } 
 
   header{
@@ -190,6 +184,7 @@ header, section {
     </header>
 
 <script>
+
 function loadQuizzes() {
     let container = document.querySelector(".grid-container");
 
@@ -198,7 +193,10 @@ function loadQuizzes() {
     container.innerHTML = "";
 
     quizzes.forEach((quiz, index) => {
+
         let card = document.createElement("div");
+
+        card.classList.add("card");
 
         card.innerHTML = `
             <img src="${quiz.image}" alt="quiz image">
@@ -210,7 +208,6 @@ function loadQuizzes() {
 
         btn.addEventListener("click", () => {
             deleteQuiz(index);
-        });
 
         card.appendChild(btn);
         container.appendChild(card);

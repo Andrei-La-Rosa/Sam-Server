@@ -215,10 +215,6 @@ button {
 </div>
 </header>
 <script>
-document.getElementById("exam-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-});
-
 function submitExam() {
 
     const title = document.getElementById("title").value.trim();
@@ -234,7 +230,7 @@ function submitExam() {
     reader.onload = function () {
         let exams = JSON.parse(localStorage.getItem("exams")) || [];
 
-        quizzes.push({
+        exams.push({
             title: title,
             image: reader.result
         });
@@ -244,7 +240,7 @@ function submitExam() {
         alert("Exam submitted!");
         document.getElementById("exam-form").reset();
 
-        window.location.href="exams.html;
+        window.location.href="exams.html";
     };
 
     reader.readAsDataURL(imageInput);

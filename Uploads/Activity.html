@@ -18,8 +18,7 @@
 --color-2: white;
 --color-3: white;
 }
-.left a,
-.right a {
+.left a {
     position: fixed;
     top: 20px;
     width: 50px;
@@ -37,15 +36,10 @@
 }
 
 .left a {
-    left: 30px;
+    left: 20px;
 }
 
-.right a {
-    right: 30px;
-}
-
-.left a:hover,
-.right a:hover {
+.left a:hover {
     transform: scale(1.1);
 }
 
@@ -190,11 +184,6 @@ button {
             <a href="../Activities.html">
               <i class="ri-arrow-left-line"></i>
             </a>
-            </div>
-<div class="right">
-    <a href="Labworks.html">
-        <i class="ri-arrow-right-line"></i>
-    </a>
 </div>
 <div class="container">
     <div class="card">
@@ -243,7 +232,7 @@ function submitLab() {
         alert("Lab submitted!");
         document.getElementById("lab-form").reset();
 
-        window.location.href="labworks.html";
+        window.location.href="../Store/Labworks.html";
     };
 </script>
 </body>

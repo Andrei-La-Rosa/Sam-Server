@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>User Registration Form</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BACKGROUND */
+body {
+    background: #111;
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #1f1f1f;
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+.navbar a {
+    color: #f1f1f1;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #8D8DFF;
+    transform: scale(1.1);
+}
+
+/* CONTAINER */
+.container {
+    width: 420px;
+    margin: 50px auto;
+    padding: 25px;
+    background: #1c1c1c;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border: 1px solid #2a2a2a;
+}
+
+/* TEXT */
+h2 {
+    text-align: center;
+    color: white;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+/* LABEL */
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #ddd;
+}
+
+/* INPUTS */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #2a2a2a;
+    color: white;
+    outline: none;
+    transition: 0.2s;
+}
+
+input:focus, select:focus {
+    border-color: #8D8DFF;
+    box-shadow: 0 0 6px rgba(141, 141, 255, 0.5);
+}
+
+/* RADIO */
+.radio-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+    color: #ddd;
+}
+
+.radio-group label {
+    font-weight: normal;
+}
+
+/* TERMS */
+.terms {
+    margin-top: 15px;
+    color: #ddd;
+}
+
+/* BUTTONS */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button[type="submit"] {
+    background-color: #8D8DFF;
+    color: white;
+}
+
+button[type="reset"] {
+    background-color: #444;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
+}
+
+/* BACK BUTTON */
+.back-btn {
+    position: absolute;
+    top: 110px;
+    left: 20px;
+    background-color: #8D8DFF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #6f6fff;
+    transform: scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <a href="../index.html">Home</a>
+    <a href="../dashboard.html">Dashboard</a>
+    <a href="../quiz.html">Quiz</a>
+    <a href="../lab.html">Lab</a>
+    <a href="../exam.html">Exam</a>
+</nav>
+
+<a href="../lab.html" class="back-btn">Go Back</a>
+
+<!-- FORM -->
+<div class="container">
+    <h2>User Registration Form</h2>
+    <p class="subtitle">Based on JavaScript Lecture</p>
+
+    <form id="regForm">
+
+        <label>Full Name:</label>
+        <input type="text" id="name">
+
+        <label>Email Address:</label>
+        <input type="email" id="email">
+
+        <label>Password:</label>
+        <input type="password" id="password">
+
+        <label>Confirm Password:</label>
+        <input type="password" id="confirmPassword">
+
+        <label>Age:</label>
+        <input type="number" id="age">
+
+        <label>Gender:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="gender" value="Male"> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+            <label><input type="radio" name="gender" value="Other"> Other</label>
+        </div>
+
+        <label>Country:</label>
+        <select id="country">
+            <option value="">Select a country</option>
+            <option>Philippines</option>
+            <option>USA</option>
+            <option>Japan</option>
+            <option>Canada</option>
+        </select>
+
+        <div class="terms">
+            <input type="checkbox" id="terms">
+            <label>I agree to the Terms and Conditions</label>
+        </div>
+
+        <div class="buttons">
+            <button type="submit">Register</button>
+            <button type="reset">Clear</button>
+        </div>
+
+    </form>
+</div>
+
+<script>
+document.getElementById("regForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
+    let age = document.getElementById("age").value;
+    let gender = document.querySelector('input[name="gender"]:checked');
+    let country = document.getElementById("country").value;
+    let terms = document.getElementById("terms").checked;
+
+    if (!name) return alert("Full name is required.");
+    if (!email) return alert("Email is required.");
+    if (password.length < 6) return alert("Password must be 6+ characters.");
+    if (password !== confirmPassword) return alert("Passwords do not match.");
+    if (age < 18 || age > 120) return alert("Invalid age.");
+    if (!gender) return alert("Select gender.");
+    if (!country) return alert("Select country.");
+    if (!terms) return alert("Accept terms.");
+
+    alert(
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Age: " + age + "\n" +
+        "Gender: " + gender.value + "\n" +
+        "Country: " + country
+    );
+});
+</script>
+
+</body>
+</html>

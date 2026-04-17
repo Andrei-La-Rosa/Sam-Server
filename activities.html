@@ -189,216 +189,22 @@ h1{
 </div>
 
 <script>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" 
-    rel="stylesheet"/>
-<title>Activities</title>
-
-<style>
-:root {
---base-color: white;
---text-color: black;
---primary-color: yellow;
---secondary-color: #8D8DFF;
---color-1: gray;
---color-2: white;
---color-3: white;
-}
-
-*{
- margin: 0;
- padding: 0;
- box-sizing: border-box;
-}
-
-body {
-    padding: 1em;
-    font-family: Arial, sans-serif;
-    background: var(--base-color);
-    color: var(--text-color);
-}
-
-/* PAGE LOAD ANIMATION */
-body {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: pageEnter 0.6s ease forwards;
-}
-
-@keyframes pageEnter {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.left{
-    color: var(--secondary-color);
-    font-size: 22px;
-    font-weight: 600;
-}
-
-.left a {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 50px;
-    height: 50px;
-    background-color: var(--secondary-color);
-    color: var(--base-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-decoration: none;
-    font-size: 24px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: 0.3s ease-in-out;
-}
-
-/* Hover effect */
-.left a:hover {
-    transform: scale(1.1);
-}
-
-/* CENTER CONTENT */
-h1{
-    margin-top: 30px;
-    text-align: center;
-    color: var(--secondary-color);
-    font-size: 2.5rem; 
-}
-
-.container {
-    margin: 2rem auto;
-    display: grid;
-    padding: 1rem;
-    align-items: center;
-    grid-template-columns: ;
-    gap: 1.5rem;
-    max-width: 400px;
-}
-
-/* CARD STYLE */
-
-.card {
-    padding: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border: 2px solid var(--secondary-color);
-    border-radius: 2rem;
-    cursor: pointer
-    transition: 0.3s ease-in-out;  
-}
-
-.card {
-  opacity: 0;
-  transform: scale(0.9);
-  animation: cardPop 0.5s ease forwards;
-  animation-delay: 0.3s;
-}
-
-@keyframes cardPop {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.card a{
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.card:hover {
-    background-color: var(--secondary-color);
-    color: var(--base-color);
-    transform: translateY(-10px);
-}
-
-/* TEXT */
-.card h2 {
-    margin-bottom: 10px;
-}
-
-.card p {
-    font-size: 20px;
-}
-
-@media (min-width: 600px){
-    .container {
-        grid-template-columns: repeat(3, 1fr); /* desktop */
-        max-width: 900px;
-    }
-}
-</style>    
-</head>
-
-<body>
-
-<!-- NAVBAR -->
-<div class="left">
-    <a href="index.html">
-        <i class="ri-home-5-fill"></i>
-    </a>
-</div>
-
-<!-- CONTENT -->
-<h1>Activities</h1>
-
-<div class="container">
-
-    <div class="card">
-        <a href="quizzes.html"> 
-            <h2>Quizzes</h2> 
-            <p id="quizCount">0</p>  
-        </a>
-    </div>
-
-    <div class="card">
-        <a href="activity.html">
-            <h2>Activity</h2>
-            <p id="labCount">0</p>
-        </a>
-    </div>
-
-    <div class="card">
-        <a href="exam.html">
-            <h2>Exams</h2>
-            <p id="examCount">0</p>    
-        </a> 
-    </div>
-
-</div>
-
-<script>
 function updateCounts() {
-    // Get data from localStorage
     let quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
-    let activity = JSON.parse(localStorage.getItem("activity")) || [];
+    let activity = JSON.parse(localStorage.getItem("labworks")) || [];
     let exams = JSON.parse(localStorage.getItem("exams")) || [];
 
-    // Update dashboard numbers
     document.getElementById("quizCount").textContent = quizzes.length;
     document.getElementById("labCount").textContent = activity.length;
     document.getElementById("examCount").textContent = exams.length;
 }
 
-// Run when page loads
+// Run on load
 updateCounts();
 
+// Update if another tab changes storage
 window.addEventListener("storage", updateCounts);
-
-updateCounts();
-});
+    
 </script>
 </body>
 </html>

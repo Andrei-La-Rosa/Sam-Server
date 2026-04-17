@@ -184,9 +184,8 @@ button {
     font-size: 16px;
   }
 }
-
-</style>
 </head>
+</style>
 <body>
 <header>
 <div class="left">
@@ -246,6 +245,8 @@ function submitQuiz() {
 
         alert("Quiz submitted!");
         document.getElementById("quiz-form").reset();
+
+        window.location.href = "quiz.html";
     };
 
     reader.readAsDataURL(imageInput);

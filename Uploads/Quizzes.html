@@ -50,7 +50,8 @@
 .right a:hover {
     transform: scale(1.1);
 }
-
+
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -185,16 +186,17 @@ button {
   }
 }
 </head>
-</style>
+</style>
+
 <body>
 <header>
 <div class="left">
-     <a href="activities.html">
+     <a href="../Activities.html">
         <i class="ri-arrow-left-line"></i>
      </a>
 </div>
 <div class="right">
-    <a href="quiz.html">
+    <a href="Store/Quiz.html">
         <i class="ri-arrow-right-line"></i>
     </a>
 </div>
@@ -246,7 +248,7 @@ function submitQuiz() {
         alert("Quiz submitted!");
         document.getElementById("quiz-form").reset();
 
-        window.location.href = "quiz.html";
+        window.location.href = "Store/Quiz.html";
     };
 
     reader.readAsDataURL(imageInput);

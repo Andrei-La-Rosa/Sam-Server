@@ -158,7 +158,7 @@ a:hover{
   header.container{
   padding-top: 0;
  }
-
+} 
 @media(max-width: 480px){
   .grid-container{
    display: flex;
@@ -189,14 +189,15 @@ a:hover{
     </header>
 <script>
 function loadExams() {
-    let container = document.querySelector(".grid-container");
 
+    let container = document.querySelector(".grid-container");
     let exams = JSON.parse(localStorage.getItem("exams")) || [];
 
     container.innerHTML = "";
 
     exams.forEach((exam, index) => {
         let card = document.createElement("div");
+        card.classList.add("card");
 
         card.innerHTML = `
             <img src="${exam.image}" alt="exam image">

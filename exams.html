@@ -116,9 +116,7 @@ header, section{
     border-radius: .5em;
     transition: 100ms ease;
 }
-
-}
-
+
 .grid-container img:hover{
     transform: translateY(20px)scale(1.02);
     scale: 1.05;
@@ -131,6 +129,31 @@ a{
 
 a:hover{
     text-decoration: underline;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+} 
+
+.card button{
+    align-self: center;
+} 
+
+.card button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.card button:hover {
+    opacity: 0.8;
 }
 
 @media(max-width: 640px){

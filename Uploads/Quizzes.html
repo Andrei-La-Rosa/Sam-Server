@@ -20,8 +20,7 @@
 }
 
 
-.left a,
-.right a {
+.left a {
     position: fixed;
     top: 20px;
     width: 50px;
@@ -41,13 +40,8 @@
 .left a {
     left: 30px;
 }
-
-.right a {
-    right: 30px;
-}
-
-.left a:hover,
-.right a:hover {
+  
+.left a:hover {
     transform: scale(1.1);
 }
 
@@ -195,11 +189,6 @@ button {
         <i class="ri-arrow-left-line"></i>
      </a>
 </div>
-<div class="right">
-    <a href="Store/Quiz.html">
-        <i class="ri-arrow-right-line"></i>
-    </a>
-</div>
 <div class="container">
     <div class="card">
         <h2>Quiz Upload</h2>
@@ -248,7 +237,7 @@ function submitQuiz() {
         alert("Quiz submitted!");
         document.getElementById("quiz-form").reset();
 
-        window.location.href = "Store/Quiz.html";
+        window.location.href = "../Store/Quiz.html";
     };
 
     reader.readAsDataURL(imageInput);

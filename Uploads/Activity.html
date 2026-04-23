@@ -144,10 +144,29 @@ input[type="file"]::file-selector-button:hover {
     width: 220px;
     position: fixed;
     top: 0;
-    left: 0;
+    left: -220px; /* 👈 hidden by default */
     background: #1f1f1f;
     padding: 20px;
     overflow-y: auto;
+    transition: 0.3s ease;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1100;
 }
 
 #labList button {
@@ -175,14 +194,11 @@ button {
   cursor: pointer;
 } 
   
-  button:hover { 
+button:hover { 
     text-decoration: underline;
-  }
+}
 
 @media (max-width: 480px) {
-  body{
-   display: center;
-  } 
 
   .card {
     padding: 20px;
@@ -210,6 +226,10 @@ button {
 </head>
 <body>
 <header>
+
+<button class="menu-btn" onclick="toggleSidebar()">
+    <i class="ri-menu-line"></i>
+</button>
 
 <div class="sidebar">
   <h3 style="color:white;">My Activities</h3>
@@ -249,22 +269,24 @@ function submitLab() {
 
     const reader = new FileReader();
 
-    reader.readAsDataURL(FileInput);
-        let activity = JSON.parse(localStorage.getItem("activity")) || [];
+    reader.onload = function () {
+    let activity = JSON.parse(localStorage.getItem("activity")) || [];
 
-        activity.push({
-            title: title,
-            file: reader.result,   // 🔥 store FILE here
-            fileName: fileInput.name
-        });
+    activity.push({
+        title: title,
+        file: reader.result,
+        fileName: fileInput.name
+    });
 
-        localStorage.setItem("activity", JSON.stringify(activity));
+    localStorage.setItem("activity", JSON.stringify(activity));
 
-        alert("Lab submitted!");
-        document.getElementById("lab-form").reset();
+    alert("Lab submitted!");
+    document.getElementById("lab-form").reset();
 
-        window.location.href="../Store/Labworks.html";
-    };
+    window.location.href = "../Store/Labworks.html";
+};
+
+reader.readAsDataURL(fileInput);
 
  function loadSidebarActivity() {
     let labList = document.getElementById("labList");
@@ -276,7 +298,7 @@ function submitLab() {
         let btn = document.createElement("button");
         btn.textContent = activity.title;
 
-        btn.addEventListener("click", () => 
+        btn.addEventListener("click", () => {
             localStorage.setItem("selectedActivity", index);
 
             window.location.href = "../Store/Labworks.html";

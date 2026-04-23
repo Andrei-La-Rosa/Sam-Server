@@ -78,6 +78,33 @@ body {
   gap: 40px;
 }
 
+
+.sidebar {
+    height: 100%;
+    width: 220px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #1f1f1f;
+    padding: 20px;
+}
+
+#examList button {
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+}
+
+#examList button:hover {
+    background: #6c6cff;
+}
+
 /* Card */
 .card {
   background: var(--base-color);
@@ -157,6 +184,9 @@ button {
   }
 
 @media (max-width: 480px) {
+  body{
+   display: center;
+  }
 
   .card {
     padding: 20px;
@@ -189,6 +219,12 @@ button {
         <i class="ri-arrow-left-line"></i>
      </a>
 </div>
+
+<div class="sidebar">
+  <h3 style="color:white;">My Exams</h3>
+  <div id="examList"></div>
+</div>
+
 <div class="container">
     <div class="card">
         <h2>Exam Upload</h2>
@@ -238,6 +274,27 @@ function submitExam() {
 
     reader.readAsDataURL(imageInput);
 }
+
+function loadSidebarExams() {
+    let examList = document.getElementById("examList");
+    let exam = JSON.parse(localStorage.getItem("exams")) || [];
+
+    examList.innerHTML = "";
+
+    exam.forEach((exams, index) => {
+        let btn = document.createElement("button");
+        btn.textContent = quiz.title;
+
+        btn.addEventListener("click", () => {
+            alert("You clicked: " + exam.title);
+
+            window.location.href = "../Store/Exams.html";
+        });
+
+        quizList.appendChild(btn);
+    });
+}
+loadSidebarQuizzes();
 </script>
 </body>
 </html>

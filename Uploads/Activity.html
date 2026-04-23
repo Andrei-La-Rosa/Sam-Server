@@ -280,9 +280,10 @@ function submitLab() {
         let btn = document.createElement("button");
         btn.textContent = activity.title;
 
-        btn.addEventListener("click", () => {
-            alert("You clicked: " + quiz.title);
-            
+        btn.addEventListener("click", () => 
+            localStorage.setItem("selectedActivity", index);
+
+            window.location.href = "../Store/Labworks.html";
         });
 
         labList.appendChild(btn);

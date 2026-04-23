@@ -305,6 +305,32 @@ button:hover {
 document.getElementById("lab-form").addEventListener("submit", function(e){
     e.preventDefault();
 });
+function initializeDefaultLabs() {
+    let activity = JSON.parse(localStorage.getItem("activity"));
+
+    // If already initialized, do nothing
+    if (activity && activity.length > 0) return;
+
+    let defaultLabs = [
+        {
+            title: "Lab #1",
+            file: "../Labworks/Lab01.html",
+            fileName: "Lab01.html"
+        },
+        {
+            title: "Lab #2",
+            file: "../Labworks/Lab02.html",
+            fileName: "Lab02.html"
+        },
+        {
+            title: "Lab #3",
+            file: "../Labworks/Lab03.html",
+            fileName: "Lab03.html"
+        }
+    ];
+
+    localStorage.setItem("activity", JSON.stringify(defaultLabs));
+}
 
 function submitLab() {
 
@@ -374,6 +400,7 @@ function loadSidebarActivity() {
     });
 }
 
+initializeDefaultLabs();
 loadSidebarActivity();
 </script>
 </body>

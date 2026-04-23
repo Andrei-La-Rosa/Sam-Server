@@ -289,8 +289,9 @@ function loadSidebarQuizzes() {
         btn.textContent = quiz.title;
 
         btn.addEventListener("click", () => {
-            alert("You clicked: " + quiz.title);
-            // later pwede mo i-open yung quiz page dito
+            localStorage.setItem("selectedQuiz", index);
+
+            window.location.href = "../Store/Quiz.html;
         });
 
         quizList.appendChild(btn);

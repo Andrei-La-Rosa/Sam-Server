@@ -140,22 +140,16 @@ input[type="file"]::file-selector-button:hover {
 }
   
 .sidebar {
-    height: 100%;
-    width: 220px;
     position: fixed;
     top: 0;
-    left: -220px; /* hidden by default */
-    
+    left: -220px;
+    width: 220px;
+    height: 100%;
     background: #1f1f1f;
-    padding: 20px;
-    overflow-y: auto;
     transition: 0.3s ease;
-
     z-index: 2000;
 
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    position: fixed;
 }
 
 .sidebar.active {
@@ -165,7 +159,7 @@ input[type="file"]::file-selector-button:hover {
 .menu-btn {
     position: fixed;
     top: 50%;
-    left: 10px;
+    left: -20px;
     transform: translateY(-50%);
     
     background: var(--text-color);

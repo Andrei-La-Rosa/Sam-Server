@@ -202,23 +202,19 @@ h1{
 <script>
 function updateCounts() {
     let quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
-    let activity = JSON.parse(localStorage.getItem("labworks")) || [];
+    let activity = JSON.parse(localStorage.getItem("activity")) || [];
     let exams = JSON.parse(localStorage.getItem("exams")) || [];
 
     document.getElementById("quizCount").textContent = quizzes.length;
     document.getElementById("labCount").textContent = activity.length;
     document.getElementById("examCount").textContent = exams.length;
 }
-
 // Run on load
 updateCounts();
 
 // Update if another tab changes storage
 window.addEventListener("storage", updateCounts);
-    
-</script>
-</body>
-</html>
+    
 </script>
 </body>
 </html>

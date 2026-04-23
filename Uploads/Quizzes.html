@@ -150,6 +150,12 @@ input[type="file"]::file-selector-button:hover {
     overflow-y: auto;
     transition: 0.3s ease;
     z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 .sidebar.active {
@@ -157,15 +163,12 @@ input[type="file"]::file-selector-button:hover {
 }
 
 .menu-btn {
-    position: fixed;
-    top: 20px;
-    left: 80px;
-    background: var(--text-color);
+    background: var(--secondary-color);
     color: white;
-    border: var(--secondary-color);
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 20px;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 22px;
     cursor: pointer;
     z-index: 1100;
 }
@@ -238,11 +241,11 @@ button {
      </a>
 </div>
 
-<button class="menu-btn" onclick="toggleSidebar()">
-    <i class="ri-menu-line"></i>
-</button>
-
 <div class="sidebar">
+  <button class="menu-btn" onclick="toggleSidebar()">
+    <i class="ri-right-line"></i>
+  </button>
+
   <h3 style="color:white;">My Quizzes</h3>
   <div id="quizList"></div>
 </div>
@@ -303,6 +306,10 @@ function submitQuiz() {
 
 function toggleSidebar() {
     document.querySelector(".sidebar").classList.toggle("active");
+
+    const icon = document.querySelector(".menu-btn i");
+    icon.classList.toggle("ri-arrow-right-line");
+    icon.classList.toggle("ri-arrow-left-line");
 }
 
 function loadSidebarQuizzes() {

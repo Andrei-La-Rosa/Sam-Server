@@ -143,8 +143,8 @@ input[type="file"]::file-selector-button:hover {
 .sidebar {
     position: fixed;
     top: 0;
-    left: -220px;
-    width: 220px;
+    left: -200px;
+    width: 200px;
     height: 100%;
     background: #1f1f1f;
     transition: 0.3s ease;
@@ -232,6 +232,16 @@ button {
   input, button {
     font-size: 16px;
   }
+
+  #quizList button {
+      font-size: 12px;
+      padding: 6px 8px;
+      border-radius: 6px;
+  }
+
+  .sidebar {
+      width: 200px;
+  }
 }
 </head>
 </style>
@@ -247,7 +257,7 @@ button {
 
 <div class="sidebar">
   <button class="menu-btn" onclick="toggleSidebar()">
-    <i class="ri-right-line"></i>
+    <i class="ri-arrow-right-line"></i>
   </button>
 
   <h3 style="color:white;">My Quizzes</h3>

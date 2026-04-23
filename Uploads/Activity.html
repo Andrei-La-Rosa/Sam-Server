@@ -81,8 +81,8 @@ body {
   width: 300px;
   text-align: center;
   border-radius: 15px;
+  box-shadow: 0 0 20px var(--text-color);
 
-.card {
   opacity: 0;
   transform: scale(0.9);
   animation: cardPop 0.5s ease forwards;
@@ -94,11 +94,7 @@ body {
     opacity: 1;
     transform: scale(1);
   }
-}
-
-  /* Glow effect */
-  box-shadow: 0 0 20px var(--text-color);
-}
+}
 
 .card h2 {
   margin-bottom: 10px;
@@ -144,7 +140,7 @@ input[type="file"]::file-selector-button:hover {
     width: 220px;
     position: fixed;
     top: 0;
-    left: -220px; /* 👈 hidden by default */
+    left: -220px;
     background: #1f1f1f;
     padding: 20px;
     overflow-y: auto;
@@ -157,16 +153,18 @@ input[type="file"]::file-selector-button:hover {
 
 .menu-btn {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    background: var(--secondary-color);
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    
+    background: var(--text-color);
     color: white;
     border: none;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 20px;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 22px;
     cursor: pointer;
-    z-index: 1100;
+    z-index: 3000;
 }
 
 #labList button {
@@ -219,13 +217,17 @@ button:hover {
   }
 
   input, button {
-    font-size: 16px; /* better tap usability */
+    font-size: 16px;
   }
 }
 </style>
 </head>
 <body>
 <header>
+
+<div class="left">
+ <a href="../Activities.html"> <i class="ri-arrow-left-line"></i> </a>
+</div>
 
 <button class="menu-btn" onclick="toggleSidebar()">
     <i class="ri-menu-line"></i>
@@ -288,6 +290,10 @@ function submitLab() {
 
 function toggleSidebar() {
     document.querySelector(".sidebar").classList.toggle("active");
+
+    const icon = document.querySelector(".menu-btn i");
+    icon.classList.toggle("ri-arrow-right-line");
+    icon.classList.toggle("ri-arrow-left-line");
 }
 
 reader.readAsDataURL(fileInput);

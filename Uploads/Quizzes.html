@@ -147,33 +147,29 @@ input[type="file"]::file-selector-button:hover {
 }
   
 .sidebar {
-    height: 100%;       
-    width: 250px;      
-    position: fixed;   
-    z-index: 1000;     
+    height: 100%;
+    width: 220px;
+    position: fixed;
     top: 0;
-    left: 0;  
-    border: var(--secondary-color);    
-    background-color: var(--base-color); 
-    color: #333;
-    overflow-x: hidden; 
-    padding: 80px 20px 20px; 
-    transition: 0.5s ease; 
-    box-shadow: 2px 0 10px var(--text-color); 
-    border-radius: 20px;
+    left: 0;
+    background: #1f1f1f;
+    padding: 20px;
 }
 
-.sidebar a {
-    text-decoration: none;
-    color: var(--base-color);
-    display: block;         
-    width: 185px;           
-    max-width: 500px;
-    min-height: 50px;
+#quizList button {
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
 }
 
-.sidebar.active {
-    left: 0; 
+#quizList button:hover {
+    background: #6c6cff;
 }
 
 button { 
@@ -223,19 +219,13 @@ button {
 
 <body>
 <header>
+
 <div class="left">
      <a href="../Activities.html">
         <i class="ri-arrow-left-line"></i>
      </a>
 </div>
-
-<div class="sidebar">
-  <div class="icon"><i class="ri-notification-3-line"></i></div>
-  <button>Quiz 1</button>
-  <button>Quiz 2</button>
-  <button>Quiz 3</button>
-</div>
-
+
 <div class="container">
     <div class="card">
         <h2>Quiz Upload</h2>
@@ -288,6 +278,25 @@ function submitQuiz() {
     };
 
     reader.readAsDataURL(imageInput);
+}
+
+function loadSidebarQuizzes() {
+    let quizList = document.getElementById("quizList");
+    let quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+
+    quizList.innerHTML = "";
+
+    quizzes.forEach((quiz, index) => {
+        let btn = document.createElement("button");
+        btn.textContent = quiz.title;
+
+        btn.addEventListener("click", () => {
+            alert("You clicked: " + quiz.title);
+            // later pwede mo i-open yung quiz page dito
+        });
+
+        quizList.appendChild(btn);
+    });
 }
 </script>
 </body>

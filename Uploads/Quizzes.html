@@ -292,6 +292,30 @@ button {
 </div>
 </header>
 <script>
+function initializeDefaultQuiz() {
+    let quizzes = JSON.parse(localStorage.getItem("quizzes"));
+
+    // If already initialized, do nothing
+    if (quizzes && quizzes.length > 0) return;
+
+    let defaultQuizzes = [
+        {
+            title: "Quiz #1",
+            image: "../Quizzes/Quiz01.jpg",
+        },
+        {
+            title: "Quiz #2",
+            image: "../Quizzes/Quiz02.jpg",
+        },
+        {
+            title: "Quiz #3",
+            image: "../Quizzes/Quiz03.jpg"
+        }
+    ];
+
+    localStorage.setItem("quizzes", JSON.stringify(defaultQuizzes));
+}
+
 document.getElementById("quiz-form").addEventListener("submit", function(e) {
     e.preventDefault();
 });
@@ -354,6 +378,7 @@ function loadSidebarQuizzes() {
         quizList.appendChild(btn);
     });
 }
+initializeDefaultQuiz();
 loadSidebarQuizzes();
 </script>
 </body>

@@ -35,6 +35,7 @@
     font-size: 24px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     transition: 0.3s ease-in-out;
+    z-index: 1000;
 }
 .left a{
     left: 20px;
@@ -104,9 +105,9 @@ body {
     border-radius: 50%;
     font-size: 22px;
     cursor: pointer;
-
     z-index: 3000;
 }
+
 #examList button {
     width: 100%;
     margin: 8px 0;
@@ -229,11 +230,11 @@ button {
      </a>
 </div>
 
-<button class="menu-btn" onclick="toggleSidebar()">
-    <i class="ri-arrow-right-line"></i>
-</button>
-
 <div class="sidebar">
+  <button class="menu-btn" onclick="toggleSidebar()">
+    <i class="ri-arrow-right-line"></i>
+  </button>
+ 
   <h3 style="color:white;">My Exams</h3>
   <div id="examList"></div>
 </div>

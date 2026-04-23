@@ -288,6 +288,10 @@ function submitExam() {
     reader.readAsDataURL(imageInput);
 }
 
+function toggleSidebar() {
+    document.querySelector(".sidebar").classList.toggle("active");
+}
+
 function loadSidebarExam() {
     let examList = document.getElementById("examList");
     let exam = JSON.parse(localStorage.getItem("exams")) || [];
@@ -296,10 +300,10 @@ function loadSidebarExam() {
 
     exam.forEach((exams, index) => {
         let btn = document.createElement("button");
-        btn.textContent = quiz.title;
+        btn.textContent = exams.title;
 
         btn.addEventListener("click", () => {
-           localStorage.setItem("selectedQuiz", index);
+           localStorage.setItem("selectedExam", index);
 
            window.location.href="../Store/Exams.html";
         });

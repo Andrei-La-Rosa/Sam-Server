@@ -144,18 +144,18 @@ input[type="file"]::file-selector-button:hover {
     width: 220px;
     position: fixed;
     top: 0;
-    left: -220px;
+    left: -220px; /* hidden by default */
+    
     background: #1f1f1f;
     padding: 20px;
     overflow-y: auto;
     transition: 0.3s ease;
+
     z-index: 2000;
 
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+    gap: 12px;
 }
 
 .sidebar.active {

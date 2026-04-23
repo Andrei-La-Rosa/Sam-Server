@@ -144,36 +144,30 @@ input[type="file"]::file-selector-button:hover {
 }
   
 .sidebar {
-    height: 100%;       
-    width: 250px;      
-    position: fixed;   
-    z-index: 1000;     
+    height: 100%;
+    width: 220px;
+    position: fixed;
     top: 0;
-    left: -500px;      
-    background-color: var(--secondary-color); 
-    color: #333;
-    overflow-x: hidden; 
-    padding: 80px 20px 20px; 
-    transition: 0.5s ease; 
-    box-shadow: 2px 0 10px var(--text-color); 
-    border-radius: 20px;
+    left: 0;
+    background: #1f1f1f;
+    padding: 20px;
+    overflow-y: auto;
 }
 
-.sidebar a {
-    text-decoration: none;
-    color: var(--secondary-color);
-    display: block;         
-    width: 185px;           
-    max-width: 500px;
-    min-height: 50px;
+#labList button {
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
 }
 
-.sidebar.active {
-    left: 0; 
-}
-
-.toggle-btn.active {
-    left: 300px; 
+#labList button:hover {
+    background: #6c6cff;
 }
 
 button { 
@@ -190,6 +184,9 @@ button {
   }
 
 @media (max-width: 480px) {
+  body{
+   display: center;
+  } 
 
   .card {
     padding: 20px;
@@ -217,17 +214,10 @@ button {
 </head>
 <body>
 <header>
-<div class="left">
-            <a href="../Activities.html">
-              <i class="ri-arrow-left-line"></i>
-            </a>
-</div>
 
 <div class="sidebar">
-  <div class="icon"><i class="ri-notification-3-line"></i></div>
-  <button>Lab Activity 1</button>
-  <button>Lab Activity 2</button>
-  <button>Lab Activity 3</button>
+  <h3 style="color:white;">My Quizzes</h3>
+  <div id="labList"></div>
 </div>
 
 <div class="container">
@@ -279,20 +269,27 @@ function submitLab() {
 
         window.location.href="../Store/Labworks.html";
     };
+
+ function loadSidebarActivity() {
+    let labList = document.getElementById("labList");
+    let activity = JSON.parse(localStorage.getItem("activity")) || [];
 
-  function setupSidepanel() {
-    const toggleBtn = document.getElementById('sidebarToggleBtn');
-    const sidebar = document.getElementById('mySidebar');
-    
-    if (!toggleBtn || !sidebar) return;
+    labList.innerHTML = "";
 
-    toggleBtn.addEventListener('click', function() {
-        sidebar.classList.toggle('active');
-        this.classList.toggle('active');
+    activity.forEach((activity, index) => {
+        let btn = document.createElement("button");
+        btn.textContent = activity.title;
+
+        btn.addEventListener("click", () => {
+            alert("You clicked: " + quiz.title);
+            
+        });
+
+        labList.appendChild(btn);
     });
 }
-  
-setupSidepanel();
+
+loadSidebarActivity();
 </script>
 </body>
 </html>

@@ -280,7 +280,9 @@ button:hover {
 document.getElementById("lab-form").addEventListener("submit", function(e){
     e.preventDefault();
 });
+
 function submitLab() {
+
     const title = document.getElementById("title").value.trim();
     const fileInput = document.getElementById("file").files[0];
 
@@ -292,33 +294,36 @@ function submitLab() {
     const reader = new FileReader();
 
     reader.onload = function () {
-    let activity = JSON.parse(localStorage.getItem("activity")) || [];
 
-    activity.push({
-        title: title,
-        file: reader.result,
-        fileName: fileInput.name
-    });
+        let activity = JSON.parse(localStorage.getItem("activity")) || [];
 
-    localStorage.setItem("activity", JSON.stringify(activity));
+        activity.push({
+            title: title,
+            file: reader.result,
+            fileName: fileInput.name
+        });
 
-    alert("Lab submitted!");
-    document.getElementById("lab-form").reset();
+        localStorage.setItem("activity", JSON.stringify(activity));
 
-    window.location.href = "../Store/Labworks.html";
-};
+        alert("Lab submitted!");
+        document.getElementById("lab-form").reset();
+
+        window.location.href = "../Store/Labworks.html";
+    };
+
+    reader.readAsDataURL(fileInput);
+}
 
 function toggleSidebar() {
     document.querySelector(".sidebar").classList.toggle("active");
 
     const icon = document.querySelector(".menu-btn i");
+
     icon.classList.toggle("ri-arrow-right-line");
     icon.classList.toggle("ri-arrow-left-line");
 }
 
-reader.readAsDataURL(fileInput);
-
- function loadSidebarActivity() {
+function loadSidebarActivity() {
     let labList = document.getElementById("labList");
     let activity = JSON.parse(localStorage.getItem("activity")) || [];
 
@@ -330,7 +335,6 @@ reader.readAsDataURL(fileInput);
 
         btn.addEventListener("click", () => {
             localStorage.setItem("selectedActivity", index);
-
             window.location.href = "../Store/Labworks.html";
         });
 

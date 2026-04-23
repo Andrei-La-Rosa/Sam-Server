@@ -379,11 +379,11 @@ function loadSidebarActivity() {
 
     activity.forEach((activity, index) => {
         let btn = document.createElement("button");
-        btn.textContent = activity.title;
+        btn.textContent = activityItem.title;
 
         btn.addEventListener("click", () => {
             localStorage.setItem("selectedActivity", index);
-            window.location.href = item.file;
+            window.location.href = activity.file;
         });
 
         labList.appendChild(btn);

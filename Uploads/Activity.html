@@ -374,10 +374,12 @@ function toggleSidebar() {
 
 function loadSidebarActivity() {
     let labList = document.getElementById("labList");
+    
+    labList.innerHTML = ""; 
 
     let activity = JSON.parse(localStorage.getItem("activity")) || [];
 
-    activity.forEach((activity, index) => {
+    activity.forEach((item, index) => {
         let btn = document.createElement("button");
         btn.textContent = activity.title;
 

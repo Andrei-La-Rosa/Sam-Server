@@ -26,7 +26,7 @@
 }
 
 html{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text-color);
 }
 
@@ -120,7 +120,7 @@ header, section{
 
 
 .grid-container img:hover{
-    transform: translateY(20px)scale(1.02);
+    transform: translateY(20px)scale(1.02));
     scale: 1.05;
 }
 
@@ -195,7 +195,7 @@ a:hover{
 function loadLabworks() {
     let container = document.querySelector(".grid-container");
 
-    let labworks = JSON.parse(localStorage.getItem("labworks")) || [];
+    let labworks = JSON.parse(localStorage.getItem("activity")) || [];
 
     container.innerHTML = "";
 
@@ -228,10 +228,11 @@ function deleteLabwork(index) {
 
     labworks.splice(index, 1);
 
-    localStorage.setItem("labworks", JSON.stringify(labworks));
+    localStorage.setItem("activity", JSON.stringify(labworks));
 
     loadLabworks(); // refresh UI
 }
+loadLabworks();
 </script>
 </script>
 </html>

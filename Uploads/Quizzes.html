@@ -303,6 +303,10 @@ function submitQuiz() {
     reader.readAsDataURL(imageInput);
 }
 
+function toggleSidebar() {
+    document.querySelector(".sidebar").classList.toggle("active");
+}
+
 function loadSidebarQuizzes() {
     let quizList = document.getElementById("quizList");
     let quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];

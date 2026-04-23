@@ -374,14 +374,6 @@ function toggleSidebar() {
 
 function loadSidebarActivity() {
     let labList = document.getElementById("labList");
-    
-    let defaultLabs = `
-        <button><a href="../Labworks/Lab01.html">Lab #1</a></button>
-        <button><a href="../Labworks/Lab02.html">Lab #2</a></button>
-        <button><a href="../Labworks/Lab03.html">Lab #3</a></button>
-    `;
-
-    labList.innerHTML = defaultLabs;
 
     let activity = JSON.parse(localStorage.getItem("activity")) || [];
 
@@ -391,7 +383,7 @@ function loadSidebarActivity() {
 
         btn.addEventListener("click", () => {
             localStorage.setItem("selectedActivity", index);
-            window.location.href = "../Store/Labworks.html";
+            window.location.href = item.file;
         });
 
         labList.appendChild(btn);

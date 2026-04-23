@@ -275,7 +275,7 @@ function submitExam() {
     reader.readAsDataURL(imageInput);
 }
 
-function loadSidebarExams() {
+function loadSidebarExam() {
     let examList = document.getElementById("examList");
     let exam = JSON.parse(localStorage.getItem("exams")) || [];
 
@@ -286,15 +286,15 @@ function loadSidebarExams() {
         btn.textContent = quiz.title;
 
         btn.addEventListener("click", () => {
-            alert("You clicked: " + exam.title);
+           localStorage.setItem("selectedQuiz", index);
 
-            window.location.href = "../Store/Exams.html";
+           window.location.href="../Store/Exams.html";
         });
 
-        quizList.appendChild(btn);
+        examList.appendChild(btn);
     });
 }
-loadSidebarQuizzes();
+loadSidebarExam();
 </script>
 </body>
 </html>

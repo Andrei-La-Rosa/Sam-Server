@@ -46,12 +46,8 @@
 }
 
 body {
-    display: flex;
     padding: 1em;
     min-height: 100vh;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     font-family: Arial, sans-serif;
     background: var(--base-color);
     color: var(--text-color);
@@ -223,7 +219,12 @@ button {
         <i class="ri-arrow-left-line"></i>
      </a>
 </div>
-
+
+<div class="sidebar">
+  <h3 style="color:white;">My Quizzes</h3>
+  <div id="quizList"></div>
+</div>
+
 <div class="container">
     <div class="card">
         <h2>Quiz Upload</h2>
@@ -291,7 +292,7 @@ function loadSidebarQuizzes() {
         btn.addEventListener("click", () => {
             localStorage.setItem("selectedQuiz", index);
 
-            window.location.href = "../Store/Quiz.html;
+            window.location.href = "../Store/Quiz.html";
         });
 
         quizList.appendChild(btn);

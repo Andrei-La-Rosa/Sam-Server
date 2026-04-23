@@ -377,7 +377,7 @@ function loadSidebarActivity() {
 
     let activity = JSON.parse(localStorage.getItem("activity")) || [];
 
-    activity.forEach((item, index) => {
+    activity.forEach((activity, index) => {
         let btn = document.createElement("button");
         btn.textContent = activity.title;
 

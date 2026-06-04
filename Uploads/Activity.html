@@ -19,7 +19,7 @@
 --color-3: white;
 }
 
-.menu-btn{
+.drop-btn{
     position: fixed;
     top: 20px;
     right: 20px; /* Move to right */
@@ -43,7 +43,7 @@
 
     z-index: 2000;
 }
-#sidebar{
+.drop-btn{
     position:fixed;
     top:0;
     right:-250px;
@@ -62,11 +62,11 @@
     z-index:1000;
 }
 
-#sidebar.active{
+.drop-btn.active{
     right:0;
 }
 
-#sidebar a{
+.drop-btn a{
     text-decoration:none;
     color:var(--secondary-color);
     font-size:1.5rem;
@@ -297,7 +297,7 @@ button:hover {
        <i class="ri-menu-line"></i>
     </button>
 
-    <div class="sidebar" id="sidebar">
+    <div class="drop-btn" id="drop-btn">
         <button class="close-btn" onclick="toggleMenu()">
                 <i class="ri-close-line"></i>
         </button>

@@ -87,15 +87,14 @@ body {
 .slider::-webkit-scrollbar{
     display:none;
 }
-
 .quiz-card{
-    width: 100%;
-    flex: 0 0 100%;
-    cursor: pointer;
-    border-radius: 15px;
-    overflow: hidden;
-    background: var(--base-color);
-    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    border-radius:15px;
+    overflow:hidden;
+    background:white;
+    box-shadow:0 0 15px rgba(0,0,0,.4);
 }
 
 .quiz-card:hover{
@@ -103,11 +102,12 @@ body {
 }
 
 .quiz-card img{
-    width: 100%;
-    height: 650px;
-    object-fit: contain;
-    display: block;
-    background: var(--text-color);
+    width:100%;
+    height:700px;
+    object-fit:contain;
+    display:block;
+    margin:auto;
+    background:black;
 }
 
 .quiz-card h3{
@@ -287,25 +287,19 @@ button {
     text-decoration: underline;
     
   }
+
 @media(max-width:768px){
 
-    .slider{
-        padding:10px;
+    .slider-wrapper{
+        max-width:95%;
     }
 
     .quiz-card{
-        min-width:180px;
-        max-width:180px;
+        max-width:100%;
     }
 
     .quiz-card img{
-        height:240px;
-    }
-
-    .slide-btn{
-        width:40px;
-        height:40px;
-        font-size:22px;
+        height:500px;
     }
 }
 

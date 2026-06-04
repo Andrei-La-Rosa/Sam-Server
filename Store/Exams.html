@@ -195,7 +195,7 @@ a:hover{
 function loadExams() {
 
     let container = document.querySelector(".grid-container");
-    let exams = JSON.parse(localStorage.getItem("exams")) || [];
+    let exams = JSON.parse(localStorage.getItem("exam")) || [];
 
     container.innerHTML = "";
 
@@ -222,7 +222,7 @@ function loadExams() {
 }
 
 function deleteExam(index) {
-    let exams = JSON.parse(localStorage.getItem("exams")) || [];
+    let exam = JSON.parse(localStorage.getItem("exams")) || [];
 
     exams.splice(index, 1);
 

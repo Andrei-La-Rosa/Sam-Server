@@ -81,7 +81,7 @@ body {
     transform: scale(1.1);
 }
 
-h1, h2, h3, {
+h1, h2, h3 {
     font-family: Merriweather, Tahoma, sans-serif;
 }
 
@@ -93,7 +93,7 @@ h1{
 
 header, section {
     margin: 2em auto;
-    width min(75em, 100%);
+    width: min(75em, 100%);
     background-color: var(--base-color);
     padding: min(2em, 15%);
     border-radius: 1em; 
@@ -157,8 +157,8 @@ header, section {
 @media(max-width: 480px){
   .grid-container{
    display: flex;
-   grid
-
+   flex-direction: column;
+   gap: 1rem;
   } 
 
   header{

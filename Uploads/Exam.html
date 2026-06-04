@@ -747,22 +747,7 @@ function initializeDefaultExams() {
 
 document.getElementById("exam-form").addEventListener("submit", function(e) {
     e.preventDefault();
-});
-
-let currentSlide = 0;
-let quizzes = [];
-function loadSliderExam(){
-
-    quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
-
-    showSlide(currentSlide);
-
-    card.innerHTML = `
-        <img src="${quiz.image}">
-        <h3>${quiz.title}</h3>
-    `;
-
-    
+});   
 
 function submitExam() {
 

@@ -18,6 +18,31 @@
 --color-2: white;
 --color-3: white;
 }
+
+.menu-btn{
+    position: fixed;
+    top: 20px;
+    right: 20px; /* Move to right */
+
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.2);
+    backdrop-filter: blur(10px);
+
+    color: var(--secondary-color);
+    font-size: 2rem;
+    cursor: pointer;
+
+    z-index: 2000;
+}
 .sidebar{
     position:fixed;
     top:0;

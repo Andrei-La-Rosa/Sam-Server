@@ -318,6 +318,11 @@ button:hover {
 </div>
 </header>
 <script>
+function toggleMenu(){
+    document.getElementById("sidebar")
+    .classList.toggle("active");
+}
+
 document.getElementById("lab-form").addEventListener("submit", function(e){
     e.preventDefault();
 });

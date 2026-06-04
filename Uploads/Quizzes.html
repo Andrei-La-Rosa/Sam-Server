@@ -68,6 +68,7 @@ body {
 }
 
 .slider{
+    display: flex;
     width:300px;
     margin:auto;
     overflow:hidden;
@@ -362,6 +363,8 @@ button {
 
 </header>
 <script>
+let currentSlide = 0;
+
 function initializeDefaultQuiz() {
     let quizzes = JSON.parse(localStorage.getItem("quizzes"));
 

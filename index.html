@@ -57,30 +57,6 @@ h1, h2, h3 {
 }
 
 /* NAVBAR */
-
-nav{    
-    display: flex;    
-    justify-content: space-between;    
-    align-items: center;   
-    flex-wrap: wrap;    
-    padding: 10px 0;
-}
-
-nav a{
-    text-decoration: none;
-    color: var(--secondary-color);
-    margin: 0 8px;
-}
-
-nav .right{
-    display: flex;
-    gap: 10px;
-}
-
-nav a:hover{
-    text-decoration: underline;
-} 
-
 .menu-btn{
     display:none;
     background:none;
@@ -285,22 +261,10 @@ h1{
 <body>
 
 <header>
-    <nav>
-        <div class="left">
-            <a href="index.html">About Me</a>
-        </div>
-
-        <div class="right">
-            <a href="Activities.html">Activities</a>
-            <a href="Uploads/Quizzes.html">Quiz</a>
-            <a href="Uploads/Activity.html">Activity</a>
-            <a href="Uploads/Exam.html">Exams</a>
-        </div>
-
-        <button class="menu-btn" onclick="toggleMenu()">
-                <i class="ri-menu-line"></i>
-        </button>
-    </nav>
+    
+    <button class="menu-btn" onclick="toggleMenu()">
+       <i class="ri-menu-line"></i>
+    </button>
 
     <div class="sidebar" id="sidebar">
         <button class="close-btn" onclick="toggleMenu()">

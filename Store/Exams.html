@@ -226,7 +226,7 @@ function deleteExam(index) {
 
     exams.splice(index, 1);
 
-    localStorage.setItem("exams", JSON.stringify(exams));
+    localStorage.setItem("exam", JSON.stringify(exams));
 
     loadExams();
 }

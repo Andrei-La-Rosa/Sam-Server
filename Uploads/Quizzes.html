@@ -68,10 +68,11 @@ body {
 }
 
 .slider{
-    display:flex;
+    width:300px;
+    margin:auto;
+    overflow:hidden;
     overflow-x:auto;
     scroll-behavior:smooth;
-    gap:20px;
     padding:20px;
 }
 
@@ -79,14 +80,20 @@ body {
     display:none;
 }
 
+.slider-wrapper{
+    width:300px;
+    margin:auto;
+    overflow:hidden;
+}
+
 .quiz-card{
-    min-width:250px;
+    width:300px;
+    flex:0 0 100%;
     cursor:pointer;
     border-radius:15px;
     overflow:hidden;
     background:white;
     box-shadow:0 0 10px rgba(0,0,0,.3);
-    transition:.3s;
 }
 
 .quiz-card:hover{
@@ -95,8 +102,9 @@ body {
 
 .quiz-card img{
     width:100%;
-    height:300px;
+    height:350px;
     object-fit:cover;
+    display:block;
 }
 
 .quiz-card h3{
@@ -308,7 +316,7 @@ button {
 
 }
 </style>
-<head>
+</head>
 <body>
 <header>
 
@@ -343,7 +351,9 @@ button {
         <i class="ri-arrow-left-s-line"></i>
     </button>
 
+    <div class="slider-wrapper">
     <div class="slider" id="quizSlider"></div>
+    </div>
 
     <button class="slide-btn next" onclick="slideRight()">
         <i class="ri-arrow-right-s-line"></i>
@@ -439,17 +449,35 @@ function loadSliderQuizzes(){
     });
 }
 function slideLeft(){
-    document.getElementById("quizSlider")
-    .scrollBy({
-        left:-300,
+
+    const slider = document.getElementById("quizSlider");
+    const total = slider.children.length;
+
+    currentSlide--;
+
+    if(currentSlide < 0){
+        currentSlide = total - 1;
+    }
+
+    slider.scrollTo({
+        left: currentSlide * slider.offsetWidth,
         behavior:"smooth"
     });
 }
 
 function slideRight(){
-    document.getElementById("quizSlider")
-    .scrollBy({
-        left:300,
+
+    const slider = document.getElementById("quizSlider");
+    const total = slider.children.length;
+
+    currentSlide++;
+
+    if(currentSlide >= total){
+        currentSlide = 0;
+    }
+
+    slider.scrollTo({
+        left: currentSlide * slider.offsetWidth,
         behavior:"smooth"
     });
 }

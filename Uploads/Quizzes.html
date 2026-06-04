@@ -92,7 +92,7 @@ body {
     width: 100%;
     flex: 0 0 100%;
     cursor: pointer;
-    border-radius:. 15px;
+    border-radius: 15px;
     overflow: hidden;
     background: var(--base-color);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -104,7 +104,7 @@ body {
 
 .quiz-card img{
     width: 100%;
-    height: 500px;
+    height: 650px;
     object-fit: contain;
     display: block;
     background: var(--text-color);
@@ -393,7 +393,6 @@ button {
 
 </header>
 <script>
-let currentSlide = 0;
 
 function initializeDefaultQuiz() {
     let quizzes = JSON.parse(localStorage.getItem("quizzes"));
@@ -454,65 +453,78 @@ function submitQuiz() {
     reader.readAsDataURL(imageInput);
 }
 
+let currentSlide = 0;
+let quizzes = [];
 function loadSliderQuizzes(){
 
+    quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+
+    showSlide(currentSlide);
+}
+function showSlide(index){
+
     const slider = document.getElementById("quizSlider");
-    const quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+    const dots = document.getElementById("dots");
 
     slider.innerHTML = "";
+    dots.innerHTML = "";
 
-    quizzes.forEach((quiz,index)=>{
+    const quiz = quizzes[index];
 
-        const card = document.createElement("div");
-        card.className = "quiz-card";
+    const card = document.createElement("div");
+    card.className = "quiz-card";
 
-        card.innerHTML = `
-            <img src="${quiz.image}">
-            <h3>${quiz.title}</h3>
-        `;
+    card.innerHTML = `
+        <img src="${quiz.image}">
+        <h3>${quiz.title}</h3>
+    `;
 
-        card.addEventListener("click",()=>{
+    card.onclick = () => {
 
-            localStorage.setItem("selectedQuiz",index);
+        localStorage.setItem("selectedQuiz", index);
 
-            window.location.href = "../Store/Quiz.html";
-        });
+        window.location.href = "../Store/Quiz.html";
+    };
 
-        slider.appendChild(card);
+    slider.appendChild(card);
+
+    quizzes.forEach((_, i)=>{
+
+        const dot = document.createElement("span");
+        dot.className = "dot";
+
+        if(i === index){
+            dot.classList.add("active");
+        }
+        dot.onclick = ()=>{
+            currentSlide = i;
+            showSlide(currentSlide);
+        };
+
+        dots.appendChild(dot);
     });
 }
-function slideLeft(){
 
-    const slider = document.getElementById("quizSlider");
-    const total = slider.children.length;
+function slideLeft(){
 
     currentSlide--;
 
     if(currentSlide < 0){
-        currentSlide = total - 1;
+        currentSlide = quizzes.length - 1;
     }
 
-    slider.scrollTo({
-        left: currentSlide * slider.offsetWidth,
-        behavior:"smooth"
-    });
+    showSlide(currentSlide);
 }
 
 function slideRight(){
 
-    const slider = document.getElementById("quizSlider");
-    const total = slider.children.length;
-
     currentSlide++;
 
-    if(currentSlide >= total){
+    if(currentSlide >= quizzes.length){
         currentSlide = 0;
     }
 
-    slider.scrollTo({
-        left: currentSlide * slider.offsetWidth,
-        behavior:"smooth"
-    });
+    showSlide(currentSlide);
 }
 
 initializeDefaultQuiz();

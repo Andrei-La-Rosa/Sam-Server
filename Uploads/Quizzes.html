@@ -455,6 +455,8 @@ function loadSliderQuizzes(){
 
     quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
 
+    console.log(quizzes);
+
     showSlide(currentSlide);
 }
 function showSlide(index){

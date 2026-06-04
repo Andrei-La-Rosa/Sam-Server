@@ -309,15 +309,6 @@ button {
      </a>
 </div>
 
-<div class="sidebar">
-  <button class="menu-btn" onclick="toggleSidebar()">
-    <i class="ri-arrow-right-line"></i>
-  </button>
- 
-  <h3 style="color:white;">My Exams</h3>
-  <div id="examList"></div>
-</div>
-
 <div class="container">
     <div class="card">
         <h2>Exam Upload</h2>
@@ -355,7 +346,7 @@ button {
 </header>
 <script>
 
-function initializeDefaultExams() {
+function initializeDefaultExam() {
     let exam = JSON.parse(localStorage.getItem("exam"));
 
     // If already initialized, do nothing
@@ -388,14 +379,14 @@ function submitExam() {
     const reader = new FileReader();
 
     reader.onload = function () {
-        let exams = JSON.parse(localStorage.getItem("exams")) || [];
+        let exam = JSON.parse(localStorage.getItem("exam")) || [];
 
-        exams.push({
+        exam.push({
             title: title,
             image: reader.result
         });
 
-        localStorage.setItem("exams", JSON.stringify(exams));
+        localStorage.setItem("exam", JSON.stringify(exam));
 
         alert("Exam submitted!");
         document.getElementById("exam-form").reset();
@@ -408,14 +399,17 @@ function submitExam() {
 
 let currentSlide = 0;
 let exam = [];
-function loadSliderExams(){
+function loadSliderExam(){
 
     exam = JSON.parse(localStorage.getItem("exam")) || [];
+
+    console.log(exam);
 
     showSlide(currentSlide);
 }
 
 function showSlide(index){
+    if(exam.length === 0) return;
 
     const slider = document.getElementById("examSlider");
     const dots = document.getElementById("dots");
@@ -426,11 +420,11 @@ function showSlide(index){
     const exams = exam[index];
 
     const card = document.createElement("div");
-    card.className = "exams-card";
+    card.className = "exam-card";
 
     card.innerHTML = `
-        <img src="${exam.image}">
-        <h3>${exam.title}</h3>
+        <img src="${exams.image}">
+        <h3>${exams.title}</h3>
     `;
 
     card.onclick = () => {
@@ -481,7 +475,7 @@ function slideRight(){
     showSlide(currentSlide);
 }
 
-initializeDefaultExams();
+initializeDefaultExam();
 loadSliderExam();
 </script>
 </body>

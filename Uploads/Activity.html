@@ -19,53 +19,9 @@
 --color-3: white;
 }
 
-.drop-btn{
-    position: fixed;
-    top: 20px;
-    right: 20px;
 
-    width: 55px;
-    height: 55px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: none;
-    border-radius: 50%;
-
-    background: rgba(255,255,255,.2);
-    backdrop-filter: blur(10px);
-
-    color: var(--secondary-color);
-    font-size: 2rem;
-    cursor: pointer;
-
-    z-index: 2000;
-} 
-
-.drop-btn.active{
-    right:0;
-}
-
-.drop-btn a{
-    text-decoration:none;
-    color:var(--secondary-color);
-    font-size:1.5rem;
-}
-
-.close-btn{
-    position: absolute;
-    top: 20px;
-    right: 20px;
-
-    background: none;
-    border: none;
-
-    font-size: 2.5rem;
-    color: var(--secondary-color);
-    cursor: pointer;
-}
+    
 
 body {
     background-image: url("../Haru.jpg");
@@ -288,21 +244,7 @@ button:hover {
 </head>
 <body>
 <header>
-    <button class="menu-btn" onclick="toggleMenu()">
-       <i class="ri-menu-line"></i>
-    </button>
-
-    <div class="drop-btn" id="drop-btn">
-        <button class="close-btn" onclick="toggleMenu()">
-                <i class="ri-close-line"></i>
-        </button>
-
-         <a href="index.html">About Me</a>
-         <a href="Activities.html">Activities</a>
-         <a href="Uploads/Quizzes.html">Quiz</a>
-         <a href="Uploads/Activity.html">Activity</a>
-         <a href="Uploads/Exam.html">Exams</a>
-    </div>
+    
 
 <div class="left">
  <a href="../Activities.html"> <i class="ri-arrow-left-line"></i> </a>

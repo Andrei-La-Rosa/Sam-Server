@@ -67,25 +67,25 @@ body {
     text-align:center;
 }
 
-.slider{
-    display: flex;
-    width:300px;
+.slider-wrapper{
+    width:100%;
+    max-width:1000px;
     margin:auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.slider{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     overflow:hidden;
-    overflow-x:auto;
-    scroll-behavior:smooth;
-    padding:20px;
 }
 
 .slider::-webkit-scrollbar{
     display:none;
-}
-
-.slider-wrapper{
-    width:90%;
-    max-width:700px;
-    margin:auto;
-    text-align:center;
 }
 
 .quiz-card{
@@ -196,7 +196,8 @@ body {
     opacity: 1;
     transform: scale(1);
   }
-}
+}
+
 
 .card h2 {
   margin-bottom: 10px;
@@ -344,7 +345,8 @@ button {
     height:450px;
     object-fit:contain;
   }
-}
+}
+
 </style>
 </head>
 <body>

@@ -18,7 +18,7 @@
 --color-2: white;
 --color-3: white;
 }
-
+
 .left a {
     padding: 0;
     position: fixed;
@@ -59,9 +59,68 @@ body {
     color: var(--text-color);
 }
 
-h3 {
-  text-align: center;
-} 
+.slider-container{
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+    text-align:center;
+}
+
+.slider{
+    display:flex;
+    overflow-x:auto;
+    scroll-behavior:smooth;
+    gap:20px;
+    padding:20px;
+}
+
+.slider::-webkit-scrollbar{
+    display:none;
+}
+
+.quiz-card{
+    min-width:250px;
+    cursor:pointer;
+    border-radius:15px;
+    overflow:hidden;
+    background:white;
+    box-shadow:0 0 10px rgba(0,0,0,.3);
+    transition:.3s;
+}
+
+.quiz-card:hover{
+    transform:scale(1.05);
+}
+
+.quiz-card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+.quiz-card h3{
+    padding:10px;
+}
+
+.slide-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    font-size:24px;
+    z-index:10;
+}
+
+.prev{
+    left:-10px;
+}
+
+.next{
+    right:-10px;
+}
 
 /* PAGE LOAD ANIMATION */
 body {
@@ -148,29 +207,7 @@ input[type="file"]::file-selector-button {
 input[type="file"]::file-selector-button:hover {
   text-decoration: underline;
 }
-  
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -150px;
 
-    width: 150px;
-    height: 100vh;
-
-    background: #1f1f1f;
-
-    transition: 0.3s ease;
-    z-index: 2000;
-
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    gap: 15px;
-}
-
-.sidebar.active {
-    left: 0;
-}
 
 .menu-btn {
     position: absolute;
@@ -220,6 +257,27 @@ button {
     text-decoration: underline;
     
   }
+@media(max-width:768px){
+
+    .slider{
+        padding:10px;
+    }
+
+    .quiz-card{
+        min-width:180px;
+        max-width:180px;
+    }
+
+    .quiz-card img{
+        height:240px;
+    }
+
+    .slide-btn{
+        width:40px;
+        height:40px;
+        font-size:22px;
+    }
+}
 
 @media (max-width: 480px) {
   body{
@@ -248,9 +306,6 @@ button {
     font-size: 16px;
   }
 
-  .sidebar {
-      width: 150px;
-  }
 }
 </head>
 </style>
@@ -262,15 +317,6 @@ button {
      <a href="../Activities.html">
         <i class="ri-arrow-left-line"></i>
      </a>
-</div>
-
-<div class="sidebar">
-  <button class="menu-btn" onclick="toggleSidebar()">
-    <i class="ri-arrow-right-line"></i>
-  </button>
-
-  <h3 style="color:white;">My Quizzes</h3>
-  <div id="quizList"></div>
 </div>
 
 <div class="container">
@@ -290,6 +336,21 @@ button {
         </form>
     </div>
 </div>
+
+<div class="slider-container">
+    <h2>Uploaded Quizzes</h2>
+
+    <button class="slide-btn prev" onclick="slideLeft()">
+        <i class="ri-arrow-left-s-line"></i>
+    </button>
+
+    <div class="slider" id="quizSlider"></div>
+
+    <button class="slide-btn next" onclick="slideRight()">
+        <i class="ri-arrow-right-s-line"></i>
+    </button>
+</div>
+
 </header>
 <script>
 function initializeDefaultQuiz() {
@@ -351,35 +412,50 @@ function submitQuiz() {
     reader.readAsDataURL(imageInput);
 }
 
-function toggleSidebar() {
-    document.querySelector(".sidebar").classList.toggle("active");
+function loadSliderQuizzes(){
 
-    const icon = document.querySelector(".menu-btn i");
-    icon.classList.toggle("ri-arrow-right-line");
-    icon.classList.toggle("ri-arrow-left-line");
-}
+    const slider = document.getElementById("quizSlider");
+    const quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
 
-function loadSidebarQuizzes() {
-    let quizList = document.getElementById("quizList");
-    let quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+    slider.innerHTML = "";
 
-    quizList.innerHTML = "";
+    quizzes.forEach((quiz,index)=>{
 
-    quizzes.forEach((quiz, index) => {
-        let btn = document.createElement("button");
-        btn.textContent = quiz.title;
+        const card = document.createElement("div");
+        card.className = "quiz-card";
 
-        btn.addEventListener("click", () => {
-            localStorage.setItem("selectedQuiz", index);
+        card.innerHTML = `
+            <img src="${quiz.image}">
+            <h3>${quiz.title}</h3>
+        `;
+
+        card.addEventListener("click",()=>{
+
+            localStorage.setItem("selectedQuiz",index);
 
             window.location.href = "../Store/Quiz.html";
         });
 
-        quizList.appendChild(btn);
+        slider.appendChild(card);
     });
 }
-initializeDefaultQuiz();
-loadSidebarQuizzes();
+function slideLeft(){
+    document.getElementById("quizSlider")
+    .scrollBy({
+        left:-300,
+        behavior:"smooth"
+    });
+}
+
+function slideRight(){
+    document.getElementById("quizSlider")
+    .scrollBy({
+        left:300,
+        behavior:"smooth"
+    });
+}
+loadSliderQuizzes();
+initializeDefaultQuiz()
 </script>
 </body>
 </html>

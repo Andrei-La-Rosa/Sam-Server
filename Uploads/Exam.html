@@ -86,44 +86,97 @@ h3 {
   gap: 40px;
 }
 
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -150px;
-
-    width: 150px;
-    height: 100vh;
-
-    background: #1f1f1f;
-
-    transition: 0.3s ease;
-    z-index: 2000;
-
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    gap: 15px;
+.slider-container{
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+    text-align:center;
 }
 
-.sidebar.active {
-    left: 0;
+.slider-wrapper{
+    width:100%;
+    max-width:700px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
-.menu-btn {
-    position: absolute;
-    top: 50%;
-    right: -20px;
-    transform: translateY(-50%);
+.slider{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
 
+.slider::-webkit-scrollbar{
+    display:none;
+}
+
+.quiz-card{
+    width: 300px;
+    margin: auto;
+    border-radius:15px; 
+    overflow:hidden; 
+    background: var(--base-color);
+    box-shadow:0 0 15px rgba(0,0,0,.4);
+}
+
+.quiz-card:hover{
+    transform: scale(1.05);
+}
+
+.quiz-card img{
+    width: 300px;
+    height: 300px;
+    object-fit:contain;
+    display:block;
+    margin:auto;
     background: var(--text-color);
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 50%;
-    font-size: 22px;
-    cursor: pointer;
+}
 
-    z-index: 3000;
+.quiz-card h3{
+    padding:10px;
+    margin: 0;
+}
+
+#dots{
+    margin-top:15px;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#bbb;
+    display:inline-block;
+    margin:0 5px;
+    cursor:pointer;
+}
+
+.dot.active{
+    background:var(--secondary-color);
+}
+
+.slide-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:55px;
+    height:55px;
+    font-size:28px;
+    border-radius:50%;
+    z-index:10;
+}
+
+.prev{
+    left:-5%;
+}
+
+.next{
+    right:-5%;
 }
 
 #examList {
@@ -282,6 +335,23 @@ button {
         </form>
     </div>
 </div>
+
+<div class="slider-container">
+    <h2>Uploaded Exams</h2>
+
+    <button class="slide-btn prev" onclick="slideLeft()">
+        <i class="ri-arrow-left-s-line"></i>
+    </button>
+
+    <div class="slider-wrapper">
+         <div class="slider" id="examSlider"></div>
+         <div id="dots"></div>
+    </div>
+
+    <button class="slide-btn next" onclick="slideRight()">
+        <i class="ri-arrow-right-s-line"></i>
+    </button>
+</div>
 </header>
 <script>
 function submitExam() {
@@ -315,34 +385,83 @@ function submitExam() {
     reader.readAsDataURL(imageInput);
 }
 
-function toggleSidebar() {
-    document.querySelector(".sidebar").classList.toggle("active");
+let currentSlide = 0;
+let quizzes = [];
+function loadSliderExams(){
 
-    const icon = document.querySelector(".menu-btn i");
-    icon.classList.toggle("ri-arrow-right-line");
-    icon.classList.toggle("ri-arrow-left-line");
+    exam = JSON.parse(localStorage.getItem("exam")) || [];
+
+    showSlide(currentSlide);
 }
 
-function loadSidebarExam() {
-    let examList = document.getElementById("examList");
-    let exam = JSON.parse(localStorage.getItem("exams")) || [];
+function showSlide(index){
 
-    examList.innerHTML = "";
+    const slider = document.getElementById("examSlider");
+    const dots = document.getElementById("dots");
 
-    exam.forEach((exams, index) => {
-        let btn = document.createElement("button");
-        btn.textContent = exams.title;
+    slider.innerHTML = "";
+    dots.innerHTML = "";
 
-        btn.addEventListener("click", () => {
-           localStorage.setItem("selectedExam", index);
+    const exams = exam[index];
 
-           window.location.href="../Store/Exams.html";
-        });
+    const card = document.createElement("div");
+    card.className = "exams-card";
 
-        examList.appendChild(btn);
+    card.innerHTML = `
+        <img src="${exam.image}">
+        <h3>${exam.title}</h3>
+    `;
+
+    card.onclick = () => {
+
+        localStorage.setItem("selectedExam", index);
+
+        window.location.href = "../Store/Exams.html";
+    };
+
+    slider.appendChild(card);
+
+    exam.forEach((_, i)=>{
+
+        const dot = document.createElement("span");
+        dot.className = "dot";
+
+        if(i === index){
+            dot.classList.add("active");
+        }
+        dot.onclick = ()=>{
+            currentSlide = i;
+            showSlide(currentSlide);
+        };
+
+        dots.appendChild(dot);
     });
 }
-loadSidebarExam();
+
+function slideLeft(){
+
+    currentSlide--;
+
+    if(currentSlide < 0){
+        currentSlide = exam.length - 1;
+    }
+
+    showSlide(currentSlide);
+}
+
+function slideRight(){
+
+    currentSlide++;
+
+    if(currentSlide >= exam.length){
+        currentSlide = 0;
+    }
+
+    showSlide(currentSlide);
+}
+
+initializeDefaultQuiz();
+loadSliderQuizzes();
 </script>
 </body>
 </html>
